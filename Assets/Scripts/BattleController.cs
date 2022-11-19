@@ -37,14 +37,14 @@ public class BattlePoint
         if (capturable && posX >= capturableObj.transform.position.x && !captured)
         {
             captured = true;
-            BattleController.instance.AddCapturedPoints(1);
+            BattleController.Current.AddCapturedPoints(1);
         } else if (capturable && posX > capturableObj.transform.position.x && captured)
         {
             captured = false;
-            BattleController.instance.AddCapturedPoints(-1);
+            BattleController.Current.AddCapturedPoints(-1);
         }
         
-        if(posX<=BattleController.instance.losingPosX) BattleController.instance.Lose();
+        if(posX<=BattleController.Current.losingPosX) BattleController.Current.Lose();
     }
 
     public void DecreasePower(float p)
@@ -78,8 +78,7 @@ public class BattleController : MonoSingleton<BattleController>
     
     private int capturedPoints = 0, pointsToCapture=0;
     private bool lost = false, won=false;
-
-    public static BattleController instance;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -202,7 +201,7 @@ public class BattleController : MonoSingleton<BattleController>
         float sum = 0;
         foreach (var b in battlePoints)
         {
-            b.Move(Time.deltaTime*powerModifier);
+            b.Move(Time.deltaTime*powerModifier,i);
             b.DecreasePower(powerDecreaseSpeed);
             sum += b.posX;
             points[i] = b.obj.transform.position;
