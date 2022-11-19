@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Tracks
 {
@@ -24,6 +25,7 @@ namespace Tracks
         private Coroutine _spawningCoroutine;
 
         private int _currentNoteIndex = 0;
+        private Note CurrentNote => _currentNoteIndex < _notes.Count ? _notes[_currentNoteIndex] : null;
 
         private List<GameObject> _noteObjects = new();
 
@@ -51,7 +53,6 @@ namespace Tracks
         private void OffsetStart()
         {
             _audioSource.Play();
-            StartCoroutine(UpdateCurrentIndex());
             _started = true;
         }
 
@@ -73,35 +74,43 @@ namespace Tracks
             }
         }
 
-        private IEnumerator UpdateCurrentIndex()
-        {
-            foreach (var (note, i) in _notes.Select((x, i) => (x, i)))
-            {
-                yield return new WaitForSeconds(note.StartDeltaTime + note.Duration);
-                _currentNoteIndex = i + 1;
-                if (!_holding && _currentNoteIndex > _finishedIndex && _currentNoteIndex - _finishedIndex > 1)
-                {
-                    NoteEnd(0);
-                }
-                // Debug.Log($"{i} available");
-            }
-        }
-
         private float _timer;
 
         private void Update()
         {
-            foreach (var go in _noteObjects)
-            {
-                go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
-            }
-
+            MoveNotes();
             HandleInput();
 
             if (!_started) return;
-
             _timer += Time.deltaTime;
+
+            if (CurrentNote != null && _timer >= CurrentNote.StartTime + CurrentNote.Duration)
+            {
+                if (_currentNoteIndex - 1 > _finishedIndex)
+                {
+                    NoteEnd(0);
+                }
+                
+                _currentNoteIndex++;
+            }
         }
+
+        private void MoveNotes()
+        {
+            foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
+            {
+                go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
+                var idx = /*_holding ? _currentNoteIndexForInput :*/ _currentNoteIndex;
+                if (i == idx)
+                {
+                    go.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+                else
+                {
+                    go.GetComponent<SpriteRenderer>().color = Color.black;
+                }
+            }
+        } 
 
         private float _accuracy;
         private bool _holding;
@@ -131,6 +140,11 @@ namespace Tracks
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
 
+                if (_accuracy > minimumPositiveAccuracy)
+                {
+                    ComboIncrease();
+                }
+
                 _currentNoteIndexForInput = _currentNoteIndex;
                 _holding = true;
             }
@@ -157,13 +171,18 @@ namespace Tracks
             }
         }
 
+        private void ComboIncrease()
+        {
+            Combo++;
+            CameraShake.Current.Shake(Mathf.Min(Combo * .75f, 3f), Mathf.Min(Combo * .75f, 4f));
+        }
+
         private void NoteEnd(float accuracy)
         {
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
-                Combo++;
-                CameraShake.Current.Shake(Mathf.Min(Combo * 1.5f, 3f), Mathf.Min(Combo * 1.5f, 4f));
+                ComboIncrease();
             }
             else
             {
@@ -175,7 +194,14 @@ namespace Tracks
         private void OnGUI()
         {
             GUI.Label(new Rect(10f, 10f, 200f, 200f),
-                $"note #: {_currentNoteIndex}\nnote # for input: {_currentNoteIndexForInput}\nfinished #: {_finishedIndex}\nholding: {_holding}\ntime: {_timer}\nstart time of curr note: {(_currentNoteIndex < _notes.Count ? _notes[_currentNoteIndex].StartTime : "??")}\naccuracy: {_accuracy}",
+                @$"note #: {_currentNoteIndex}
+note # for input: {_currentNoteIndexForInput}
+finished #: {_finishedIndex}
+holding: {_holding}
+time: {_timer}
+start time of curr note: {CurrentNote?.StartTime ?? -1}
+accuracy: {_accuracy}
+combo: {Combo}",
                 new GUIStyle
                 {
                     fontSize = 25
