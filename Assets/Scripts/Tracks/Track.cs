@@ -35,6 +35,8 @@ namespace Tracks
             _notes = TrackManager.Current.Tracks[trackKey];
             _audioSource = GetComponent<AudioSource>();
 
+            Time.timeScale = 1f;
+            
             StartSpawning();
         }
 

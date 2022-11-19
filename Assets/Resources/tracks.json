@@ -30,6 +30,56 @@
         "startTime": 5.92104375,
         "startDeltaTime": 0.13157875,
         "duration": 0.2631575
+      },
+      {
+        "startTime": 6.8420950000000005,
+        "startDeltaTime": 0.65789375,
+        "duration": 1.7105237500000001
+      },
+      {
+        "startTime": 9.078933750000001,
+        "startDeltaTime": 0.526315,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 9.47367,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.526315
+      },
+      {
+        "startTime": 10.13156375,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 10.526299999999999,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.526315
+      },
+      {
+        "startTime": 11.184193749999999,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 11.578929999999998,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.526315
+      },
+      {
+        "startTime": 12.236823749999997,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 12.631559999999997,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.526315
+      },
+      {
+        "startTime": 13.289453749999996,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
       }
     ]
   }

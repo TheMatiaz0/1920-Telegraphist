@@ -798,10 +798,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track1
       objectReference: {fileID: 0}
-    - target: {fileID: 3609946516610852862, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 36ede64dfe37b884aacf69ef80f9e45a, type: 3}
     - target: {fileID: 3609946517333185705, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: m_SortingOrder
       value: 2
