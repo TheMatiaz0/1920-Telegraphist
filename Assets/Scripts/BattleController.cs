@@ -7,14 +7,14 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class BattlePoint
 {
-    public float posX = 0;
+    public float posX = 100;
     public float power = 0;
     [HideInInspector]
     public GameObject obj;
     
     public BattlePoint(GameObject o)
     {
-        posX = 0;
+        posX = 100;
         power = 0;
         obj = o;
     }
@@ -84,6 +84,26 @@ public class BattleController : MonoBehaviour
         AddPowerAt(selectedPoint,-Random.Range(myPower.x,myPower.y));
     }
 
+    public void SetClosestPointTo(Vector2 towerPos, float angle)
+    {
+        float minAng = Single.PositiveInfinity;
+        int minIndex = 4;
+        int i = 0;
+        foreach (var p in points)
+        {
+            if (Mathf.Abs(angle-Vector2.Angle(towerPos, p))  < minAng)
+            {
+                minAng = Mathf.Abs(angle-Vector2.Angle(towerPos, p));
+                minIndex = i;
+            }
+
+            i++;
+        }
+        
+        Debug.Log(minIndex);
+        selectedPoint = minIndex;
+    }
+
     private void Start()
     {
         pointAmount = battlePoints.Count;
@@ -98,7 +118,10 @@ public class BattleController : MonoBehaviour
     }
 
     private float timeToAttack = 0;
-    private int selectedPoint = 4;
+    [HideInInspector]
+    public int selectedPoint = 4;
+    [HideInInspector]
+    public float averagePointX = 0;
     
     private float s = 0;
     public GameObject obbb;
@@ -120,14 +143,17 @@ public class BattleController : MonoBehaviour
         
         timeToAttack -= Time.deltaTime;
         int i = 0;
+        float sum = 0;
         foreach (var b in battlePoints)
         {
             b.Move(Time.deltaTime*powerModifier);
             b.DecreasePower(powerDecreaseSpeed);
-            
+            sum += b.posX;
             points[i] = b.obj.transform.position;
             i++;
         }
+
+        averagePointX = sum / pointAmount;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -141,18 +167,6 @@ public class BattleController : MonoBehaviour
                 BadClick();
             }
             
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            selectedPoint++;
-            if (selectedPoint >= pointAmount) selectedPoint = pointAmount - 1;
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            selectedPoint--;
-            if (selectedPoint < 0) selectedPoint = 0;
         }
 
         if (timeToAttack <= 0)
