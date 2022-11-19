@@ -103,7 +103,6 @@ namespace Tracks
                 if (i == idx)
                 {
                     go.GetComponent<SpriteRenderer>().color = Color.red;
-                    Debug.Log("DFHJSDHFJSDHFJSDHFJH");
                 }
                 else
                 {

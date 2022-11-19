@@ -914,6 +914,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3609946516610852803, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: m_Name
+      value: Track1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609946517333185705, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881586368439576337, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 848875597007444857, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_Name
       value: Tracks
@@ -961,18 +973,6 @@ PrefabInstance:
     - target: {fileID: 848875597007444863, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609946516610852803, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
-      propertyPath: m_Name
-      value: Track1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609946517333185705, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4881586368439576337, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
