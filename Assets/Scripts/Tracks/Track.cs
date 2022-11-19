@@ -28,15 +28,17 @@ namespace Tracks
         private List<GameObject> _noteObjects = new();
 
         private bool _started = false;
-        
-        
+
+        public int Combo { get; private set; }
+
+
         private void Start()
         {
             _notes = TrackManager.Current.Tracks[trackKey];
             _audioSource = GetComponent<AudioSource>();
 
             Time.timeScale = 1f;
-            
+
             StartSpawning();
         }
 
@@ -60,7 +62,7 @@ namespace Tracks
             go.transform.localScale = new Vector3(1, duration * scale, 1);
             _noteObjects.Add(go);
         }
-        
+
         private IEnumerator Spawner()
         {
             foreach (var (note, i) in _notes.Select((x, i) => (x, i)))
@@ -86,15 +88,16 @@ namespace Tracks
         }
 
         private float _timer;
+
         private void Update()
         {
             foreach (var go in _noteObjects)
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
             }
-            
+
             HandleInput();
-            
+
             if (!_started) return;
 
             _timer += Time.deltaTime;
@@ -104,13 +107,13 @@ namespace Tracks
         private bool _holding;
         private int _currentNoteIndexForInput;
         private int _finishedIndex = -1;
-        
+
         private void HandleInput()
         {
             var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
 
             if (idx >= _notes.Count) return;
-            
+
             var note = _notes[idx];
 
             if (!_holding && _finishedIndex >= idx && Input.GetKeyDown(keyCode))
@@ -118,7 +121,7 @@ namespace Tracks
                 Debug.Log($"ERR, fin: {_finishedIndex}, idx: {idx}");
                 return;
             }
-            
+
             if (Input.GetKeyDown(keyCode))
             {
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
@@ -131,23 +134,24 @@ namespace Tracks
                 _currentNoteIndexForInput = _currentNoteIndex;
                 _holding = true;
             }
-            
+
             if (Input.GetKeyUp(keyCode) && _holding)
             {
                 // Debug.Log($"up {idx} {note.StartTime + note.Duration} {_timer}");
                 var dist = Mathf.Abs(note.StartTime + note.Duration - _timer);
                 if (dist < (threshold)) // / note.Duration
                 {
-                    _accuracy += 1 - (dist  / threshold); // dist * note.Duration
+                    _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
-                
+
                 _finishedIndex = idx;
                 NoteEnd(_accuracy / 2);
-                
+
                 _accuracy = 0;
                 _holding = false;
                 _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
-            } else if (Input.GetKeyUp(keyCode))
+            }
+            else if (Input.GetKeyUp(keyCode))
             {
                 Debug.Log("NOT HOLDING");
             }
@@ -155,16 +159,27 @@ namespace Tracks
 
         private void NoteEnd(float accuracy)
         {
-            Debug.Log($"accuracy: {accuracy}");
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
-                TextManager.Current.AddText();
+                Combo++;
+                CameraShake.Current.Shake(Mathf.Min(Combo * 1.5f, 3f), Mathf.Min(Combo * 1.5f, 4f));
             }
             else
             {
+                Combo = 0;
                 //BattleController.Current.BadClick();
             }
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10f, 10f, 200f, 200f),
+                $"note #: {_currentNoteIndex}\nnote # for input: {_currentNoteIndexForInput}\nfinished #: {_finishedIndex}\nholding: {_holding}\ntime: {_timer}\nstart time of curr note: {(_currentNoteIndex < _notes.Count ? _notes[_currentNoteIndex].StartTime : "??")}\naccuracy: {_accuracy}",
+                new GUIStyle
+                {
+                    fontSize = 25
+                });
         }
     }
 }

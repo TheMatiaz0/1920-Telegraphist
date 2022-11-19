@@ -51,8 +51,8 @@ MonoBehaviour:
   offset: 3
   notePrefab: {fileID: 1179990873830203450, guid: 134c7fbc2d5bb7546b35cb679957b4aa, type: 3}
   keyCode: 32
-  threshold: 0.7
-  minimumPositiveAccuracy: 0.7
+  threshold: 0.9
+  minimumPositiveAccuracy: 0.6
   go: {fileID: 0}
 --- !u!82 &3609946516610852862
 AudioSource:
@@ -64,7 +64,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 36ede64dfe37b884aacf69ef80f9e45a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 848ed2026ca22a048bef2d80312c1af0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
