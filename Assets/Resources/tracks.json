@@ -2,14 +2,34 @@
   "tracks": {
     "0": [
       {
-        "startTime": 0.8467724999999999,
-        "startDeltaTime": 0.8467724999999999,
-        "duration": 0.6048374999999999
+        "startTime": 0.0,
+        "startDeltaTime": 0,
+        "duration": 1.18420875
       },
       {
-        "startTime": 2.4193499999999997,
-        "startDeltaTime": 0.9677399999999999,
-        "duration": 0.6048374999999999
+        "startTime": 1.3157875,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 2.2368387500000004,
+        "startDeltaTime": 0.65789375,
+        "duration": 1.18420875
+      },
+      {
+        "startTime": 3.5526262500000003,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
+      },
+      {
+        "startTime": 4.60525625,
+        "startDeltaTime": 0.7894725,
+        "duration": 1.18420875
+      },
+      {
+        "startTime": 5.92104375,
+        "startDeltaTime": 0.13157875,
+        "duration": 0.2631575
       }
     ]
   }

@@ -25,6 +25,9 @@ namespace Tracks
         private int _currentNoteIndex = 0;
 
         private List<GameObject> _noteObjects = new();
+
+        private bool _started = false;
+        
         
         private void Start()
         {
@@ -43,7 +46,8 @@ namespace Tracks
         private void OffsetStart()
         {
             _audioSource.Play();
-            StartCoroutine(Asdf());
+            StartCoroutine(UpdateCurrentIndex());
+            _started = true;
         }
 
         private void Spawn(float duration)
@@ -60,20 +64,25 @@ namespace Tracks
             {
                 yield return new WaitForSeconds(note.StartDeltaTime + (note.Duration / 2));
                 Spawn(note.Duration);
-                yield return new WaitForSeconds(note.Duration - (note.Duration / 2));
+                yield return new WaitForSeconds(note.Duration / 2);
             }
         }
 
-        private IEnumerator Asdf()
+        private IEnumerator UpdateCurrentIndex()
         {
             foreach (var (note, i) in _notes.Select((x, i) => (x, i)))
             {
-                yield return new WaitForSeconds(note.StartDeltaTime - (note.Duration / 2));
-                _currentNoteIndex = i;
-                yield return new WaitForSeconds(note.Duration * 1.5f);
+                yield return new WaitForSeconds(note.StartDeltaTime + note.Duration);
+                _currentNoteIndex = i + 1;
+                if (!_holding && _currentNoteIndex > _finishedIndex && _currentNoteIndex - _finishedIndex > 1)
+                {
+                    NoteEnd(0);
+                }
+                // Debug.Log($"{i} available");
             }
         }
 
+        private float _timer;
         private void Update()
         {
             foreach (var go in _noteObjects)
@@ -82,44 +91,68 @@ namespace Tracks
             }
             
             HandleInput();
+            
+            if (!_started) return;
+
+            _timer += Time.deltaTime;
         }
 
         private float _accuracy;
         private bool _holding;
         private int _currentNoteIndexForInput;
+        private int _finishedIndex = -1;
+        
         private void HandleInput()
         {
-            var note = _notes[_holding ? _currentNoteIndexForInput : _currentNoteIndex];
-            var time = _audioSource.time;
+            var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
+
+            if (idx >= _notes.Count) return;
+            
+            var note = _notes[idx];
+
+            if (!_holding && _finishedIndex >= idx && Input.GetKeyDown(keyCode))
+            {
+                Debug.Log($"ERR, fin: {_finishedIndex}, idx: {idx}");
+                return;
+            }
             
             if (Input.GetKeyDown(keyCode))
             {
-                var dist = Mathf.Abs(note.StartTime - time);
-                if (dist < threshold)
+                Debug.Log($"down {idx} {note.StartTime} {_timer}");
+                var dist = Mathf.Abs(note.StartTime - _timer);
+                if (dist < (threshold)) // / note.Duration
                 {
-                    _accuracy += 1 - (dist / threshold);
+                    _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
 
                 _currentNoteIndexForInput = _currentNoteIndex;
                 _holding = true;
-            } else if (Input.GetKeyUp(keyCode))
+            }
+            
+            if (Input.GetKeyUp(keyCode) && _holding)
             {
-                var dist = Mathf.Abs(note.StartTime + note.Duration - time);
-                if (dist < threshold)
+                // Debug.Log($"up {idx} {note.StartTime + note.Duration} {_timer}");
+                var dist = Mathf.Abs(note.StartTime + note.Duration - _timer);
+                if (dist < (threshold)) // / note.Duration
                 {
-                    _accuracy += 1 - (dist / threshold);
+                    _accuracy += 1 - (dist  / threshold); // dist * note.Duration
                 }
                 
+                _finishedIndex = idx;
                 NoteEnd(_accuracy / 2);
                 
                 _accuracy = 0;
                 _holding = false;
+                _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
+            } else if (Input.GetKeyUp(keyCode))
+            {
+                Debug.Log("NOT HOLDING");
             }
         }
 
         private void NoteEnd(float accuracy)
         {
-            Debug.Log($"accuracy: {accuracy}");
+            Debug.Log($"accuracy: {accuracy} fin: {_finishedIndex}");
         }
     }
 }
