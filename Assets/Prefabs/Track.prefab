@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackKey: 0
   scale: 8.3
-  offset: 2
+  offset: 3
   notePrefab: {fileID: 1179990873830203450, guid: 134c7fbc2d5bb7546b35cb679957b4aa, type: 3}
   keyCode: 32
   threshold: 1.3
