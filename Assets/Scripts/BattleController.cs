@@ -53,6 +53,15 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        pointAmount = battlePoints.Count;
+        points = new List<Vector2>();
+        float space = 1;
+        for (int i = 0; i < pointAmount; i++)
+        {
+            var obj = Instantiate(pointObj, new Vector3(0, space*pointAmount/2 - i*space, 0), Quaternion.identity, transform);
+            battlePoints[i].obj = obj;
+            points.Add(new Vector3(0, space*pointAmount/2 - i*space, 0));
+        }
     }
 
     public void AddPowerAt(int i, float pow, int affectNeighbors = 3, float affectingModifier= 2)
@@ -91,32 +100,22 @@ public class BattleController : MonoBehaviour
         int i = 0;
         foreach (var p in points)
         {
-            if (Mathf.Abs(angle-Vector2.Angle(towerPos, p))  < minAng)
+            var ang = Vector2.Angle(new Vector2(1, 0),
+                p - towerPos);
+            if (p.y < towerPos.y) ang = -ang;
+            if (Mathf.Abs(angle-ang)  < minAng)
             {
-                minAng = Mathf.Abs(angle-Vector2.Angle(towerPos, p));
+                minAng = Mathf.Abs(angle-ang);
                 minIndex = i;
             }
 
             i++;
         }
         
-        Debug.Log(minIndex);
+        //Debug.Log(minIndex);
         selectedPoint = minIndex;
     }
-
-    private void Start()
-    {
-        pointAmount = battlePoints.Count;
-        points = new List<Vector2>();
-        float space = 1;
-        for (int i = 0; i < pointAmount; i++)
-        {
-            var obj = Instantiate(pointObj, new Vector3(0, space*pointAmount/2 - i*space, 0), Quaternion.identity, transform);
-            battlePoints[i].obj = obj;
-            points.Add(new Vector3(0, space*pointAmount/2 - i*space, 0));
-        }
-    }
-
+    
     private float timeToAttack = 0;
     [HideInInspector]
     public int selectedPoint = 4;
@@ -175,5 +174,7 @@ public class BattleController : MonoBehaviour
             // enemy attack
             AddPowerAt(Random.Range(0,pointAmount), Random.Range(enemyPower.x,enemyPower.y));
         }
+        
+        Debug.Log(points.Count);
     }
 }

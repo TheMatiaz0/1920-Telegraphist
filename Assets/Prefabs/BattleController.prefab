@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5710885644344459331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5710885644344459329}
+  - component: {fileID: 5710885644344459330}
+  m_Layer: 0
+  m_Name: BattleController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5710885644344459329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710885644344459331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5710885644344459330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710885644344459331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4da1b99896eeea4397c706b99477cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battlePoints:
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+  enemyAttackInterval: {x: 1, y: 3}
+  powerModifier: 0.2
+  powerDecreaseSpeed: 0.003
+  enemyPower: {x: -10, y: -5}
+  myPower: {x: 8, y: 13}
+  pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}
+  points: []
+  selectedPoint: 4
+  averagePointX: 0
+  obbb: {fileID: 0}
