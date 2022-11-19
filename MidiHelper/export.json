@@ -1,0 +1,26 @@
+﻿{
+  "tracks": {
+    "0": [
+      {
+        "startTime": 6.0,
+        "startDeltaTime": 0,
+        "duration": 0
+      },
+      {
+        "startTime": 14.0,
+        "startDeltaTime": 0,
+        "duration": 0
+      },
+      {
+        "startTime": 17.0,
+        "startDeltaTime": 0,
+        "duration": 1.0
+      },
+      {
+        "startTime": 21.0,
+        "startDeltaTime": 0,
+        "duration": 0
+      }
+    ]
+  }
+}
