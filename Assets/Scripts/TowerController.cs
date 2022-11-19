@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TowerController : MonoBehaviour
+{
+    private float angle = 0;
+    public Vector2 maxAngle = Vector2.zero;
+    public float rotationSpeed = 0.4f;
+    public GameObject towerToRotate;
+
+    void SetSelectedPoint()
+    {
+        BattleController.instance.SetClosestPointTo(transform.position, angle);
+    }
+    
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            angle -= rotationSpeed*Time.deltaTime;
+            if (angle < maxAngle.x) angle = maxAngle.x;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            angle += rotationSpeed*Time.deltaTime;
+            if (angle > maxAngle.y) angle = maxAngle.y;
+        }
+
+        towerToRotate.transform.localEulerAngles = new Vector3(0, 0, angle);
+        SetSelectedPoint();
+    }
+    
+    public Vector2 GetIntersectionPointCoordinates(float angle, float x)
+    {
+        float b2 = Mathf.Sqrt(Mathf.Pow(x,2)/Mathf.Pow(Mathf.Cos(angle),2) - Mathf.Pow(x,2));
+        return new Vector2(x,b2);
+    }
+}
+
