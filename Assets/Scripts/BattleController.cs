@@ -30,7 +30,7 @@ public class BattlePoint
     {
         posX += m*power;
         
-        Vector3 pos = obj.transform.position;
+        Vector2 pos = obj.transform.position;
         pos.x = posX;
         obj.transform.position = pos;
 

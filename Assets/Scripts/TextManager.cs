@@ -90,7 +90,7 @@ public class TextManager : MonoSingleton<TextManager>
                 text.text = "";
                 obj.transform.DOScaleY(obj.transform.localScale.y + 0.1f,0);
                 text.DOColor(baseColor, 0f);
-                obj.transform.DOMoveY(obj.transform.position.y + 25, 0);
+                obj.transform.DOMoveY(obj.transform.position.y + 3, 0);
             });
     }
 }

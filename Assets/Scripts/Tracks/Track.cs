@@ -175,7 +175,7 @@ namespace Tracks
         {
             Combo++;
             TextManager.Current.AddText();
-            CameraShake.Current.Shake(Mathf.Min(Combo * .75f, 3f), Mathf.Min(Combo * .75f, 4f));
+            CameraShake.Current.Shake(Mathf.Min(Combo * 5, 3f), Mathf.Min(Combo * 5, 4f));
         }
 
         private void NoteEnd(float accuracy)
@@ -189,7 +189,8 @@ namespace Tracks
             {
                 Combo = 0;
                 TextManager.Current.LineFailed();
-                //BattleController.Current.BadClick();
+                TextManager.Current.LineFailed();
+                //BattleController.Current.BadClick()
             }
         }
 
