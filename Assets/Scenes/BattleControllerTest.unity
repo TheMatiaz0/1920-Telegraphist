@@ -342,9 +342,10 @@ MonoBehaviour:
   enemyAttackInterval: {x: 1, y: 3}
   powerModifier: 0.2
   powerDecreaseSpeed: 0.003
-  enemyPower: {x: -14, y: -5}
+  enemyPower: {x: -10, y: -5}
   myPower: {x: 8, y: 13}
   pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}
+  points: []
   obbb: {fileID: 165309637}
 --- !u!4 &1452317662
 Transform:

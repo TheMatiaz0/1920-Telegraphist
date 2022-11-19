@@ -55,9 +55,23 @@ public class BattleController : MonoBehaviour
         instance = this;
     }
 
-    public void AddPowerAt(int i, float pow)
+    public void AddPowerAt(int i, float pow, int affectNeighbors = 3, float affectingModifier= 2)
     {
         battlePoints[i].power += pow;
+        for (int j = i+1; j < i + affectNeighbors && j < pointAmount; j++)
+        {
+            if((battlePoints[j].posX > battlePoints[i].posX && pow<=0)
+               || (battlePoints[j].posX < battlePoints[i].posX && pow>0))
+                battlePoints[j].power += pow / ((j-i) * affectingModifier);
+            
+        }
+        
+        for (int j = i-1; j >= i - affectNeighbors && j >= 0; j--)
+        {
+            if((battlePoints[j].posX  > battlePoints[i].posX&& pow<=0)
+               || (battlePoints[j].posX < battlePoints[i].posX && pow>0)) 
+                battlePoints[j].power += pow / ((i-j) * affectingModifier);
+        }
     }
 
     public void GoodClick()
@@ -72,13 +86,14 @@ public class BattleController : MonoBehaviour
 
     private void Start()
     {
-        points = new List<Vector2>();
         pointAmount = battlePoints.Count;
+        points = new List<Vector2>();
         float space = 1;
         for (int i = 0; i < pointAmount; i++)
         {
             var obj = Instantiate(pointObj, new Vector3(0, space*pointAmount/2 - i*space, 0), Quaternion.identity, transform);
             battlePoints[i].obj = obj;
+            points.Add(new Vector3(0, space*pointAmount/2 - i*space, 0));
         }
     }
 
