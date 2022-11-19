@@ -279,7 +279,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387424946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.4, z: -9}
+  m_LocalPosition: {x: 0, y: -6.51, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -394,6 +394,7 @@ MonoBehaviour:
   vcam: {fileID: 516927516}
   idleProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
   shakeProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  shakeFrequency: 0.8
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,10 +907,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_NoiseProfile: {fileID: 11400000, guid: 46965f9cbaf525742a6da4c2172a99cd, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0.2
-  m_FrequencyGain: 0.7
+  m_FrequencyGain: 0.2
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1760106128
 GameObject:
@@ -1084,9 +1085,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3609946516610852801, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: offset
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3609946516610852803, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: m_Name
       value: Track1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609946516610852862, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: m_Volume
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3609946517333185705, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: m_SortingOrder
