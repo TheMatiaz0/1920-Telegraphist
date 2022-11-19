@@ -73,12 +73,24 @@ public class TextManager : MonoSingleton<TextManager>
         
     }
 
-    void LineFailed()
+    public void LineFailed()
     {
         charI = 0;
         currentText = "";
         text.text = "";
         textI++;
         if (textI >= lines.Count) textI = 0;
+        
+        text.DOColor(Color.red, 1f);
+        obj.transform.DOScaleY(obj.transform.localScale.y - 0.1f, 1f);
+        obj.transform.DOMoveY(obj.transform.position.y - 3, 1f).OnComplete(
+            () =>
+            {
+                currentText = "";
+                text.text = "";
+                obj.transform.DOScaleY(obj.transform.localScale.y + 0.1f,0);
+                text.DOColor(baseColor, 0f);
+                obj.transform.DOMoveY(obj.transform.position.y + 25, 0);
+            });
     }
 }

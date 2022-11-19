@@ -174,6 +174,7 @@ namespace Tracks
         private void ComboIncrease()
         {
             Combo++;
+            TextManager.Current.AddText();
             CameraShake.Current.Shake(Mathf.Min(Combo * .75f, 3f), Mathf.Min(Combo * .75f, 4f));
         }
 
@@ -187,6 +188,7 @@ namespace Tracks
             else
             {
                 Combo = 0;
+                TextManager.Current.LineFailed();
                 //BattleController.Current.BadClick();
             }
         }
