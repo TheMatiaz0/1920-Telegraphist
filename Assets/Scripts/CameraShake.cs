@@ -39,17 +39,15 @@ public class CameraShake : MonoSingleton<CameraShake>
         _shaking = true;
 
         _perlin.m_NoiseProfile = shakeProfile;
-        _perlin.m_FrequencyGain = shakeFrequency;
         
-        Transition(intensity, 0.2f)
+        Transition(intensity, shakeFrequency, 0.3f)
             .OnComplete(() =>
             {
-                Transition(_defaultAmplitude, 0.2f)
+                Transition(_defaultAmplitude, _defaultFrequency, 0.3f)
                     .SetDelay(duration)
                     .OnComplete(() =>
                     {
                         _perlin.m_NoiseProfile = idleProfile;
-                        _perlin.m_FrequencyGain = _defaultFrequency;
                 
                         _shaking = false;
 
@@ -57,8 +55,10 @@ public class CameraShake : MonoSingleton<CameraShake>
             });
     }
 
-    private Tween Transition(float intensity, float duration)
+    private Tween Transition(float intensity, float frequency, float duration)
     {
-        return DOVirtual.Float(_perlin.m_AmplitudeGain, intensity, duration, (v) => _perlin.m_AmplitudeGain = v);
+        DOVirtual.Float(_perlin.m_AmplitudeGain, intensity, duration, (v) => _perlin.m_AmplitudeGain = v);
+        return DOVirtual.Float(_perlin.m_FrequencyGain, frequency, duration, (v) => _perlin.m_FrequencyGain = v);
+
     }
 }
