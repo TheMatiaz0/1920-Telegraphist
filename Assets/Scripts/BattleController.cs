@@ -95,6 +95,7 @@ public class BattleController : MonoSingleton<BattleController>
         }
 
         pointsToCapture = battlePoints.Where(x => x.capturable).Count();
+        Debug.Log($"Need to capture {pointsToCapture} points");
     }
 
     public void Lose()
@@ -113,6 +114,8 @@ public class BattleController : MonoSingleton<BattleController>
     
     public void AddCapturedPoints(int n)
     {
+        if(n>0) Debug.Log("Captured a point!");
+        else Debug.Log("Lost a point!");
         capturedPoints += n;
         if (capturedPoints >= pointsToCapture)
         {
