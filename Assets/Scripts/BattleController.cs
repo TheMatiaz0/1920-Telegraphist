@@ -38,7 +38,7 @@ public class BattlePoint
         {
             captured = true;
             BattleController.Current.AddCapturedPoints(1);
-        } else if (capturable && posX > capturableObj.transform.position.x && captured)
+        } else if (capturable && posX < capturableObj.transform.position.x && captured)
         {
             captured = false;
             BattleController.Current.AddCapturedPoints(-1);
@@ -69,6 +69,8 @@ public class BattleController : MonoSingleton<BattleController>
     public Vector2 enemyPower = Vector2.zero;
     public Vector2 myPower = Vector2.zero;
 
+    [Header("Drawind")] public float spread = 1;
+
     public GameObject pointObj;
     private int pointAmount = 10;
     [HideInInspector]
@@ -84,10 +86,9 @@ public class BattleController : MonoSingleton<BattleController>
         
         pointAmount = battlePoints.Count;
         points = new List<Vector2>();
-        float space = 1;
         for (int i = 0; i < pointAmount; i++)
         {
-            Vector2 pos = (Vector2)transform.position + new Vector2(0, space * pointAmount / 2 - i * space);
+            Vector2 pos = (Vector2)transform.position + new Vector2(0, spread * pointAmount / 2 - i * spread);
             var obj = Instantiate(pointObj, pos, Quaternion.identity, transform);
             battlePoints[i].obj = obj;
             battlePoints[i].posX = pos.x;
