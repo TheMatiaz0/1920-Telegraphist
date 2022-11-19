@@ -16,6 +16,7 @@ namespace Tracks
         [SerializeField] private KeyCode keyCode;
         [SerializeField] private float threshold;
         [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
+        [SerializeField] private ParticleSystem particleSystem;
         
         private List<Note> _notes;
         private AudioSource _audioSource;
@@ -40,6 +41,8 @@ namespace Tracks
             Time.timeScale = 1f;
 
             StartSpawning();
+            
+            particleSystem.Stop();
         }
 
         private void StartSpawning()
@@ -99,15 +102,15 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
-                var idx = /*_holding ? _currentNoteIndexForInput :*/ _currentNoteIndex;
-                if (i == idx)
-                {
-                    go.GetComponent<SpriteRenderer>().color = Color.red;
-                }
-                else
-                {
-                    go.GetComponent<SpriteRenderer>().color = Color.black;
-                }
+                // var idx = /*_holding ? _currentNoteIndexForInput :*/ _currentNoteIndex;
+                // if (i == idx)
+                // {
+                //     go.GetComponent<SpriteRenderer>().color = Color.red;
+                // }
+                // else
+                // {
+                //     go.GetComponent<SpriteRenderer>().color = Color.black;
+                // }
             }
         } 
 
@@ -132,11 +135,14 @@ namespace Tracks
 
             if (Input.GetKeyDown(keyCode))
             {
+                
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
                 if (dist < (threshold)) // / note.Duration
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
+
+                    particleSystem.Play();
                 }
 
                 if (_accuracy > minimumPositiveAccuracy)
@@ -156,6 +162,8 @@ namespace Tracks
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
+                
+                particleSystem.Stop();
 
                 _finishedIndex = idx;
                 NoteEnd(_accuracy / 2);
@@ -174,7 +182,7 @@ namespace Tracks
         {
             Combo++;
             TextManager.Current.AddText();
-            CameraShake.Current.Shake(Mathf.Min(Combo * .6f, 2.5f), Mathf.Min(Combo * .5f, 2f));
+            CameraShake.Current.Shake(Mathf.Min(Combo * .3f, 2f), Mathf.Min(Combo * .5f, 2f));
         }
 
         private void NoteEnd(float accuracy)
