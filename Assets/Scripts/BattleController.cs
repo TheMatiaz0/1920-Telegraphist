@@ -1,16 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [Serializable]
 public class BattlePoint
 {
+    [HideInInspector]
     public float posX = 100;
+    [HideInInspector]
     public float power = 0;
     [HideInInspector]
     public GameObject obj;
+
+    public bool capturable = false;
+    public GameObject capturableObj;
     
     public BattlePoint(GameObject o)
     {
@@ -18,13 +24,27 @@ public class BattlePoint
         power = 0;
         obj = o;
     }
-    public void Move(float m)
+
+    private bool captured = false;
+    public void Move(float m, int i)
     {
         posX += m*power;
         
         Vector3 pos = obj.transform.position;
         pos.x = posX;
         obj.transform.position = pos;
+
+        if (capturable && posX >= capturableObj.transform.position.x && !captured)
+        {
+            captured = true;
+            BattleController.instance.AddCapturedPoints(1);
+        } else if (capturable && posX > capturableObj.transform.position.x && captured)
+        {
+            captured = false;
+            BattleController.instance.AddCapturedPoints(-1);
+        }
+        
+        if(posX<=BattleController.instance.losingPosX) BattleController.instance.Lose();
     }
 
     public void DecreasePower(float p)
@@ -37,6 +57,12 @@ public class BattlePoint
 
 public class BattleController : MonoBehaviour
 {
+    [Header("WIn & Lose")]
+    public float losingPosX = 0;
+    public List<GameObject> objectsToCapture;
+    
+    [Header("Points")]
+    
     public List<BattlePoint> battlePoints;
     public Vector2 enemyAttackInterval = Vector2.zero;
     public float powerModifier = 1;
@@ -49,6 +75,10 @@ public class BattleController : MonoBehaviour
     [HideInInspector]
     public List<Vector2> points;
 
+    
+    private int capturedPoints = 0, pointsToCapture=0;
+    private bool lost = false, won=false;
+
     public static BattleController instance;
     private void Awake()
     {
@@ -58,9 +88,35 @@ public class BattleController : MonoBehaviour
         float space = 1;
         for (int i = 0; i < pointAmount; i++)
         {
-            var obj = Instantiate(pointObj, new Vector3(0, space*pointAmount/2 - i*space, 0), Quaternion.identity, transform);
+            var obj = Instantiate(pointObj, Vector2.zero, Quaternion.identity, transform);
             battlePoints[i].obj = obj;
-            points.Add(new Vector3(0, space*pointAmount/2 - i*space, 0));
+            obj.transform.localPosition = new Vector2(0, space * pointAmount / 2 - i * space);
+            points.Add(obj.transform.position);
+        }
+
+        pointsToCapture = battlePoints.Where(x => x.capturable).Count();
+    }
+
+    public void Lose()
+    {
+        if (lost || won) return;
+        lost = true;
+        Debug.Log("I LOST!");
+    }
+    
+    public void Win()
+    {
+        if (lost || won) return;
+        won = true;
+        Debug.Log("I WON!");
+    }
+    
+    public void AddCapturedPoints(int n)
+    {
+        capturedPoints += n;
+        if (capturedPoints >= pointsToCapture)
+        {
+            Win();
         }
     }
 
@@ -145,7 +201,7 @@ public class BattleController : MonoBehaviour
         float sum = 0;
         foreach (var b in battlePoints)
         {
-            b.Move(Time.deltaTime*powerModifier);
+            b.Move(Time.deltaTime*powerModifier,i);
             b.DecreasePower(powerDecreaseSpeed);
             sum += b.posX;
             points[i] = b.obj.transform.position;
@@ -174,7 +230,5 @@ public class BattleController : MonoBehaviour
             // enemy attack
             AddPowerAt(Random.Range(0,pointAmount), Random.Range(enemyPower.x,enemyPower.y));
         }
-        
-        Debug.Log(points.Count);
     }
 }
