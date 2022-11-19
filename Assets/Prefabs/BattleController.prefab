@@ -156,12 +156,67 @@ MonoBehaviour:
     obj: {fileID: 0}
     capturable: 0
     capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
+  - posX: 0
+    power: 0
+    obj: {fileID: 0}
+    capturable: 0
+    capturableObj: {fileID: 0}
   enemyAttackInterval: {x: 1, y: 3}
-  powerModifier: 0.2
+  powerModifier: 0.1
   powerDecreaseSpeed: 0.003
   enemyPower: {x: -10, y: -5}
-  myPower: {x: 8, y: 13}
-  spread: 1
+  myPower: {x: 1, y: 2}
+  spread: 0.6
   pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}
   points: []
   selectedPoint: 4
@@ -220,6 +275,18 @@ PrefabInstance:
     - target: {fileID: 5700587847690353921, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_Name
       value: CapturePoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6503153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
+      propertyPath: m_Color.r
+      value: 0.764151
       objectReference: {fileID: 0}
     - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_MaskInteraction

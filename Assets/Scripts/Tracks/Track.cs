@@ -17,6 +17,7 @@ namespace Tracks
         [SerializeField] private float threshold;
         [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
         [SerializeField] private ParticleSystem particleSystem;
+        [SerializeField] private Animator telegrafAnim;
         
         private List<Note> _notes;
         private AudioSource _audioSource;
@@ -95,6 +96,8 @@ namespace Tracks
                 
                 _currentNoteIndex++;
             }
+            
+            telegrafAnim.SetBool("Holding",Input.GetKey(keyCode));
         }
 
         private void MoveNotes()
