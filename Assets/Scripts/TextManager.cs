@@ -58,13 +58,13 @@ public class TextManager : MonoSingleton<TextManager>
         charI = 0;
         textI++;
         if (textI >= lines.Count) textI = 0;
+        currentText = "";
 
-        text.DOColor(Color.yellow, 0.5f);
-        obj.transform.DOScaleY(obj.transform.localScale.y + 0.1f, 0.5f);
-        obj.transform.DOMoveY(obj.transform.position.y + 1, 0.5f).OnComplete(
+        text.DOColor(Color.yellow, 0.2f);
+        obj.transform.DOScaleY(obj.transform.localScale.y + 0.1f, 0.2f);
+        obj.transform.DOMoveY(obj.transform.position.y + 1, 0.2f).OnComplete(
             () =>
             {
-                currentText = "";
                 text.text = "";
                 obj.transform.DOScaleY(obj.transform.localScale.y - 0.1f,0);
                 text.DOColor(baseColor, 0f);
@@ -78,13 +78,13 @@ public class TextManager : MonoSingleton<TextManager>
         charI = 0;
         textI++;
         if (textI >= lines.Count) textI = 0;
+        currentText = "";
         
-        text.DOColor(Color.red, 0.5f);
-        obj.transform.DOScaleY(obj.transform.localScale.y - 0.1f, 0.5f);
-        obj.transform.DOMoveY(obj.transform.position.y - 3, 0.5f).OnComplete(
+        text.DOColor(Color.red, 0.2f);
+        obj.transform.DOScaleY(obj.transform.localScale.y - 0.1f, 0.2f);
+        obj.transform.DOMoveY(obj.transform.position.y - 3, 0.2f).OnComplete(
             () =>
             {
-                currentText = "";
                 text.text = "";
                 obj.transform.DOScaleY(obj.transform.localScale.y + 0.1f,0);
                 text.DOColor(baseColor, 0f);

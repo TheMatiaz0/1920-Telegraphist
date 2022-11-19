@@ -69,7 +69,7 @@ public class BattleController : MonoSingleton<BattleController>
     public Vector2 enemyPower = Vector2.zero;
     public Vector2 myPower = Vector2.zero;
 
-    [Header("Drawind")] public float spread = 1;
+    [Header("Drawing")] public float spread = 1;
 
     public GameObject pointObj;
     private int pointAmount = 10;
