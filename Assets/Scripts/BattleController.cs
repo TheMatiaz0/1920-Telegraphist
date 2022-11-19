@@ -90,6 +90,7 @@ public class BattleController : MonoSingleton<BattleController>
             Vector2 pos = (Vector2)transform.position + new Vector2(0, space * pointAmount / 2 - i * space);
             var obj = Instantiate(pointObj, pos, Quaternion.identity, transform);
             battlePoints[i].obj = obj;
+            battlePoints[i].posX = pos.x;
             points.Add(pos);
         }
 
