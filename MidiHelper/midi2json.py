@@ -6,11 +6,11 @@ _, in_file, out_file, *_ = sys.argv
 
 mid = mido.MidiFile(in_file)
 
-# print(mid)
+print(mid)
 
 notes_dict = {
     93: 0,
-    92: 1,
+    40: 0,
 }
 
 time = 0
@@ -28,6 +28,9 @@ for msg in mid:
     time += msg.time
 
     if msg.type == 'note_off':
+        if msg.note not in notes_dict:
+            continue
+
         key = notes_dict[msg.note]
         if key not in tracks:
             tracks[key] = []
