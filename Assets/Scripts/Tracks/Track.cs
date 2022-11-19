@@ -160,7 +160,7 @@ namespace Tracks
             }
             else
             {
-                BattleController.Current.BadClick();
+                //BattleController.Current.BadClick();
             }
         }
     }

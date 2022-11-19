@@ -59,8 +59,7 @@ public class BattleController : MonoSingleton<BattleController>
 {
     [Header("WIn & Lose")]
     public float losingPosX = 0;
-    public List<GameObject> objectsToCapture;
-    
+
     [Header("Points")]
     
     public List<BattlePoint> battlePoints;
@@ -88,10 +87,10 @@ public class BattleController : MonoSingleton<BattleController>
         float space = 1;
         for (int i = 0; i < pointAmount; i++)
         {
-            var obj = Instantiate(pointObj, Vector2.zero, Quaternion.identity, transform);
+            Vector2 pos = (Vector2)transform.position + new Vector2(0, space * pointAmount / 2 - i * space);
+            var obj = Instantiate(pointObj, pos, Quaternion.identity, transform);
             battlePoints[i].obj = obj;
-            obj.transform.localPosition = new Vector2(0, space * pointAmount / 2 - i * space);
-            points.Add(obj.transform.position);
+            points.Add(pos);
         }
 
         pointsToCapture = battlePoints.Where(x => x.capturable).Count();
