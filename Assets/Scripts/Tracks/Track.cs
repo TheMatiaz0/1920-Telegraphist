@@ -159,6 +159,7 @@ namespace Tracks
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
+                TextManager.Current.AddText();
             }
             else
             {

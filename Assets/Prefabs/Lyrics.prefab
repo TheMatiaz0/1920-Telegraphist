@@ -76,10 +76,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1154517363400571837}
   lines:
-  - "Na pocz\u0105tku B\xF3g stworzy\u0142 niebo i ziemi\u0119."
-  - "Ziemia za\u015B by\u0142a bez\u0142adem i pustkowiem: ciemno\u015B\u0107 by\u0142a
-    nad powierzchni\u0105 bezmiaru w\xF3d"
-  - "a Duch Bo\u017Cy unosi\u0142 si\u0119 nad wodami."
+  - "Na pocz\u0105tku stworzy\u0142 B\xF3g niebo i ziemi\u0119."
+  - "A ziemia by\u0142a pusta i pr\xF3\u017Cna i ciemno\u015Bci by\u0142y nad g\u0142\u0119boko\u015Bci\u0105,
+    a Duch Bo\u017Cy unasza\u0142 si\u0119 nad wodami."
+  - "I rzek\u0142 B\xF3g: Niech si\u0119 zstanie \u015Bwiat\u0142o\u015B\u0107: i
+    zsta\u0142a si\u0119 \u015Bwiat\u0142o\u015B\u0107."
+  shakeDuration: 0.1
+  shakePower: 20
 --- !u!114 &1154517362518241570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,16 +150,16 @@ RectTransform:
   m_GameObject: {fileID: 1154517363400571839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1154517362518241568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -638, y: -558}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -588.1, y: -469.3}
+  m_SizeDelta: {x: 1326.1, y: 157.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1154517363400571836
 CanvasRenderer:
@@ -249,7 +252,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -199.91382, y: -137.77853, z: -807.3468, w: 86.44928}
+  m_margin: {x: 10, y: 10, z: 10, w: 10}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
