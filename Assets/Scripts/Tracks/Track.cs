@@ -29,6 +29,8 @@ namespace Tracks
 
         private bool _started = false;
         
+        public int Combo { get; private set; }
+        
         
         private void Start()
         {
@@ -155,15 +157,27 @@ namespace Tracks
 
         private void NoteEnd(float accuracy)
         {
-            Debug.Log($"accuracy: {accuracy}");
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
+                Combo++;
+                CameraShake.Current.Shake(Combo * 1.5f, Combo * 1.5f);
             }
             else
             {
+                Combo = 0;
                 //BattleController.Current.BadClick();
             }
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10f, 10f, 200f, 200f), 
+                $"note #: {_currentNoteIndex}\nnote # for input: {_currentNoteIndexForInput}\nfinished #: {_finishedIndex}\nholding: {_holding}\ntime: {_timer}\nstart time of curr note: {(_currentNoteIndex < _notes.Count ? _notes[_currentNoteIndex].StartTime : "??")}\naccuracy: {_accuracy}", 
+                new GUIStyle
+            {
+                fontSize = 25
+            });
         }
     }
 }
