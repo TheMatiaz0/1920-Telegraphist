@@ -2,84 +2,324 @@
   "tracks": {
     "0": [
       {
-        "startTime": 0.0,
-        "startDeltaTime": 0,
-        "duration": 1.18420875
+        "startTime": 2.0432671875,
+        "startDeltaTime": 2.0432671875,
+        "duration": 0.461538
       },
       {
-        "startTime": 1.3157875,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 2.9663431874999997,
+        "startDeltaTime": 0.461538,
+        "duration": 0.1153845
       },
       {
-        "startTime": 2.2368387500000004,
-        "startDeltaTime": 0.65789375,
-        "duration": 1.18420875
+        "startTime": 3.4278811874999997,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 3.5526262500000003,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 3.8894191874999997,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 4.60525625,
-        "startDeltaTime": 0.7894725,
-        "duration": 1.18420875
+        "startTime": 4.3509571875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 5.92104375,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 5.0432641875,
+        "startDeltaTime": 0.5769225,
+        "duration": 0.461538
       },
       {
-        "startTime": 6.8420950000000005,
-        "startDeltaTime": 0.65789375,
-        "duration": 1.7105237500000001
+        "startTime": 5.9663401875,
+        "startDeltaTime": 0.461538,
+        "duration": 0.461538
       },
       {
-        "startTime": 9.078933750000001,
-        "startDeltaTime": 0.526315,
-        "duration": 0.2631575
+        "startTime": 6.7740316875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 9.47367,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.526315
+        "startTime": 7.2355696875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.461538
       },
       {
-        "startTime": 10.13156375,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 8.0432611875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.461538
       },
       {
-        "startTime": 10.526299999999999,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.526315
+        "startTime": 8.850952687500001,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 11.184193749999999,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 9.3124906875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 11.578929999999998,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.526315
+        "startTime": 9.7740286875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.461538
       },
       {
-        "startTime": 12.236823749999997,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 10.8124891875,
+        "startDeltaTime": 0.5769225,
+        "duration": 0.1153845
       },
       {
-        "startTime": 12.631559999999997,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.526315
+        "startTime": 11.2740271875,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
       },
       {
-        "startTime": 13.289453749999996,
-        "startDeltaTime": 0.13157875,
-        "duration": 0.2631575
+        "startTime": 11.735565187499999,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 12.206718562499999,
+        "startDeltaTime": 0.35576887500000004,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 12.543256687499998,
+        "startDeltaTime": 0.22115362500000002,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 12.774025687499996,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 13.466332687499996,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 13.927870687499995,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 14.389408687499994,
+        "startDeltaTime": 0.3461535,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 14.735562187499994,
+        "startDeltaTime": 0.230769,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 15.312484687499994,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 15.658638187499994,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 16.004791687499992,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 16.350945187499992,
+        "startDeltaTime": 0.230769,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 16.92786768749999,
+        "startDeltaTime": 0.230769,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 17.38940568749999,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 17.850943687499992,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 18.42786618749999,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 18.77401968749999,
+        "startDeltaTime": 0.230769,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 19.23555768749999,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 19.697095687499992,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 20.043249187499992,
+        "startDeltaTime": 0.230769,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 20.62017168749999,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 20.96632518749999,
+        "startDeltaTime": 0.230769,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 21.197094187499992,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 21.427863187499995,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 21.658632187499997,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 21.8894011875,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 22.3509391875,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 22.8124771875,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 23.043246187500003,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 23.274015187500005,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 23.504784187500007,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 23.73555318750001,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 24.19709118750001,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 24.427860187500013,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 24.889398187500014,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 25.120167187500016,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 25.350936187500018,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 25.58170518750002,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 25.812474187500023,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 26.274012187500023,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.3461535
+      },
+      {
+        "startTime": 26.735550187500024,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 26.975934562500026,
+        "startDeltaTime": 0.12499987500000001,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 27.197088187500025,
+        "startDeltaTime": 0.105769125,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 27.427857187500027,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 27.65862618750003,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 27.889395187500032,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 28.120164187500034,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 28.350933187500036,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
+      },
+      {
+        "startTime": 28.58170218750004,
+        "startDeltaTime": 0.1153845,
+        "duration": 0.1153845
       }
     ]
   }

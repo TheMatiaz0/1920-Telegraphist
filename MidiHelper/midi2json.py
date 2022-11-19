@@ -11,6 +11,7 @@ print(mid)
 notes_dict = {
     93: 0,
     40: 0,
+    72: 0,
 }
 
 time = 0

@@ -46,14 +46,14 @@ namespace Tracks
 
         private void StartSpawning()
         {
-            _spawningCoroutine = StartCoroutine(Spawner());
             Invoke(nameof(OffsetStart), offset);
+            _spawningCoroutine = StartCoroutine(Spawner());
         }
 
         private void OffsetStart()
         {
-            _audioSource.Play();
             _started = true;
+            _audioSource.Play();
         }
 
         private void Spawn(float duration)
@@ -84,8 +84,9 @@ namespace Tracks
             if (!_started) return;
             _timer += Time.deltaTime;
 
-            if (CurrentNote != null && _timer >= CurrentNote.StartTime + CurrentNote.Duration)
+            if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 0.5))
             {
+                Debug.Log("NEXT");
                 if (_currentNoteIndex - 1 > _finishedIndex)
                 {
                     NoteEnd(0);
@@ -163,7 +164,7 @@ namespace Tracks
 
                 _accuracy = 0;
                 _holding = false;
-                _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
+                // _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
             }
             else if (Input.GetKeyUp(keyCode))
             {
@@ -174,7 +175,7 @@ namespace Tracks
         private void ComboIncrease()
         {
             Combo++;
-            CameraShake.Current.Shake(Mathf.Min(Combo * .75f, 3f), Mathf.Min(Combo * .75f, 4f));
+            CameraShake.Current.Shake(Mathf.Min(Combo * .6f, 2.5f), Mathf.Min(Combo * .5f, 2f));
         }
 
         private void NoteEnd(float accuracy)
