@@ -16,13 +16,13 @@ public class TowerController : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             angle -= rotationSpeed*Time.deltaTime;
             if (angle < maxAngle.x) angle = maxAngle.x;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             angle += rotationSpeed*Time.deltaTime;
             if (angle > maxAngle.y) angle = maxAngle.y;

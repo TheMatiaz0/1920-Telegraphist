@@ -61,7 +61,7 @@ namespace Tracks
         {
             var go = Instantiate(notePrefab, transform);
             go.transform.localPosition = new Vector3(0, offset * scale, 0);
-            go.transform.localScale = new Vector3(1, duration * scale, 1);
+            go.transform.localScale = new Vector3(.7f, duration * scale, 1);
             _noteObjects.Add(go);
         }
 
@@ -138,7 +138,7 @@ namespace Tracks
                 
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
-                if (dist < (threshold)) // / note.Duration
+                if (dist < threshold) // / note.Duration
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
 

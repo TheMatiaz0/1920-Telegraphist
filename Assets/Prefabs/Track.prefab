@@ -4864,8 +4864,8 @@ MonoBehaviour:
   offset: 3
   notePrefab: {fileID: 1179990873830203450, guid: 134c7fbc2d5bb7546b35cb679957b4aa, type: 3}
   keyCode: 32
-  threshold: 1.3
-  minimumPositiveAccuracy: 0.65
+  threshold: 0.7
+  minimumPositiveAccuracy: 0.6
   particleSystem: {fileID: 657745934931734176}
 --- !u!82 &3609946516610852862
 AudioSource:
