@@ -14,6 +14,7 @@ namespace Tracks
         [SerializeField] private GameObject notePrefab;
         [SerializeField] private KeyCode keyCode;
         [SerializeField] private float threshold;
+        [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
 
         [SerializeField] private GameObject go;
 
@@ -152,7 +153,15 @@ namespace Tracks
 
         private void NoteEnd(float accuracy)
         {
-            Debug.Log($"accuracy: {accuracy} fin: {_finishedIndex}");
+            Debug.Log($"accuracy: {accuracy}");
+            if (accuracy >= minimumPositiveAccuracy)
+            {
+                BattleController.Current.GoodClick();
+            }
+            else
+            {
+                BattleController.Current.BadClick();
+            }
         }
     }
 }

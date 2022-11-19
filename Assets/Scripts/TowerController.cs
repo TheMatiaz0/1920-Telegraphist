@@ -11,7 +11,7 @@ public class TowerController : MonoBehaviour
 
     void SetSelectedPoint()
     {
-        BattleController.instance.SetClosestPointTo(transform.position, angle);
+        BattleController.Current.SetClosestPointTo(transform.position, angle);
     }
     
     void Update()

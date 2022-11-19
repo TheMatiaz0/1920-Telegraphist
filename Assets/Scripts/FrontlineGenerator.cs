@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class FrontlineGenerator:MonoBehaviour
 {
-    BattleController _battleController = BattleController.instance;
+    BattleController _battleController = BattleController.Current;
     private void Start()
     {
         var frontLine = CreateFrontline(_battleController.points);

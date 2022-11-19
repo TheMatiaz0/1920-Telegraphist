@@ -35,7 +35,7 @@ public class BattlePoint
     }
 }
 
-public class BattleController : MonoBehaviour
+public class BattleController : MonoSingleton<BattleController>
 {
     public List<BattlePoint> battlePoints;
     public Vector2 enemyAttackInterval = Vector2.zero;
@@ -49,10 +49,10 @@ public class BattleController : MonoBehaviour
     [HideInInspector]
     public List<Vector2> points;
 
-    public static BattleController instance;
-    private void Awake()
+    protected override void Awake()
     {
-        instance = this;
+        base.Awake();
+        
         pointAmount = battlePoints.Count;
         points = new List<Vector2>();
         float space = 1;
@@ -122,23 +122,23 @@ public class BattleController : MonoBehaviour
     [HideInInspector]
     public float averagePointX = 0;
     
-    private float s = 0;
-    public GameObject obbb;
-    private bool bbb = false;
+    // private float s = 0;
+    // public GameObject obbb;
+    // private bool bbb = false;
     void Update()
     {
-        if (bbb)
-        {
-            s += Time.deltaTime*3;
-            if (s >= 2) bbb = false;
-        }
-        else
-        {
-            s -= Time.deltaTime*3;
-            if (s <=0) bbb = true;
-        }
-
-        obbb.transform.localScale = new Vector3(s, s, s);
+        // if (bbb)
+        // {
+        //     s += Time.deltaTime*3;
+        //     if (s >= 2) bbb = false;
+        // }
+        // else
+        // {
+        //     s -= Time.deltaTime*3;
+        //     if (s <=0) bbb = true;
+        // }
+        //
+        // obbb.transform.localScale = new Vector3(s, s, s);
         
         timeToAttack -= Time.deltaTime;
         int i = 0;
@@ -154,19 +154,19 @@ public class BattleController : MonoBehaviour
 
         averagePointX = sum / pointAmount;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (s >= 1.7f)
-            {
-                GoodClick();
-                Debug.Log("asdasdasd");
-            }
-            else
-            {
-                BadClick();
-            }
-            
-        }
+        // if (Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     if (s >= 1.7f)
+        //     {
+        //         GoodClick();
+        //         Debug.Log("asdasdasd");
+        //     }
+        //     else
+        //     {
+        //         BadClick();
+        //     }
+        //     
+        // }
 
         if (timeToAttack <= 0)
         {
@@ -175,6 +175,6 @@ public class BattleController : MonoBehaviour
             AddPowerAt(Random.Range(0,pointAmount), Random.Range(enemyPower.x,enemyPower.y));
         }
         
-        Debug.Log(points.Count);
+        // Debug.Log(points.Count);
     }
 }
