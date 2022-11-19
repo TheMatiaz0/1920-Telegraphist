@@ -91,16 +91,19 @@ public class BattleController : MonoBehaviour
         int i = 0;
         foreach (var p in points)
         {
-            if (Mathf.Abs(angle-Vector2.Angle(towerPos, p))  < minAng)
+            var ang = Vector2.Angle(new Vector2(1, 0),
+                p - towerPos);
+            if (p.y < towerPos.y) ang = -ang;
+            if (Mathf.Abs(angle-ang)  < minAng)
             {
-                minAng = Mathf.Abs(angle-Vector2.Angle(towerPos, p));
+                minAng = Mathf.Abs(angle-ang);
                 minIndex = i;
             }
 
             i++;
         }
         
-        Debug.Log(minIndex);
+        //Debug.Log(minIndex);
         selectedPoint = minIndex;
     }
 

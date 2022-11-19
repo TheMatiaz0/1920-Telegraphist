@@ -30,6 +30,8 @@ public class TowerController : MonoBehaviour
 
         towerToRotate.transform.localEulerAngles = new Vector3(0, 0, angle);
         SetSelectedPoint();
+
+        //Debug.Log(Vector2.Angle(new Vector2(1,0), BattleController.instance.points[4]-(Vector2)transform.position));
     }
     
     public Vector2 GetIntersectionPointCoordinates(float angle, float x)
