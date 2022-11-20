@@ -104,6 +104,7 @@ public class BattleController : MonoSingleton<BattleController>
         if (lost || won) return;
         lost = true;
         Debug.Log("I LOST!");
+        GameManager.Current.GameEnd(false);
     }
     
     public void Win()
@@ -111,6 +112,7 @@ public class BattleController : MonoSingleton<BattleController>
         if (lost || won) return;
         won = true;
         Debug.Log("I WON!");
+        GameManager.Current.GameEnd(true);
     }
     
     public void AddCapturedPoints(int n)
