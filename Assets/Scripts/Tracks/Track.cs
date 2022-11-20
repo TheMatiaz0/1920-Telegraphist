@@ -100,6 +100,11 @@ namespace Tracks
                 }
 
                 _currentNoteIndex++;
+
+                if (_currentNoteIndex >= _notes.Count)
+                {
+                    GameManager.Current.GameEnd(true);
+                }
             }
 
             telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
