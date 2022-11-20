@@ -24,6 +24,7 @@ namespace Tracks
         [SerializeField] private AudioClip missSound;
         [SerializeField] private AudioSource soundSource;
         [SerializeField] private float fadeTime = 2f;
+        [SerializeField] private int maxTrackRepeats = 3;
 
 
         private List<Note> _notes;
@@ -58,6 +59,8 @@ namespace Tracks
                 main.startLifetime = new ParticleSystem.MinMaxCurve(_particleStrength, _particleStrength * 5f);
             }
         }
+
+        private int _trackRepeatCount = 0;
 
 
         private void Start()
@@ -148,7 +151,11 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(true, "You have survived the attack!");
+                    _trackRepeatCount++;
+                    if (_trackRepeatCount >= maxTrackRepeats)
+                    {
+                        GameManager.Current.GameEnd(true, "You have survived the attack!");   
+                    }
                 }
             }
         }
