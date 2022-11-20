@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 1626078986}
   - component: {fileID: 1626078987}
   - component: {fileID: 1689512836}
+  - component: {fileID: 848875597327759821}
   m_Layer: 0
   m_Name: Big_1
   m_TagString: Untagged
@@ -231,7 +232,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626078985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d1910789790d3a84eb882716954c155d, type: 2}
   m_CullingMode: 0
@@ -243,6 +244,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &848875597327759821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626078985}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {x: 8, y: 15}
 --- !u!1 &848875597007444857
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +465,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bf80ff90c48af704d9b533143276903b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -726,6 +740,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 848875597007444863}
     m_Modifications:
+    - target: {fileID: 920687407660929691, guid: 51123e2e741bd7d4c8ae19d9e848a706, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4431176610721606282, guid: 51123e2e741bd7d4c8ae19d9e848a706, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -777,6 +795,10 @@ PrefabInstance:
     - target: {fileID: 4431176610721606282, guid: 51123e2e741bd7d4c8ae19d9e848a706, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5632673691082993905, guid: 51123e2e741bd7d4c8ae19d9e848a706, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6108661038489350058, guid: 51123e2e741bd7d4c8ae19d9e848a706, type: 3}
       propertyPath: m_Name
@@ -834,12 +856,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.startSize.minScalar
