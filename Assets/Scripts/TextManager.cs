@@ -11,6 +11,9 @@ public class TextManager : MonoSingleton<TextManager>
     public TextMeshProUGUI text;
     public List<string> lines;
     public float shakeDuration = 0.1f, shakePower = 20;
+    [SerializeField] private AudioClip carriageReset, bell;
+    [SerializeField] private AudioClip[] writeSounds;
+    [SerializeField] private AudioSource typewriterSource;
     
     private string currentText = "";
     private int charI=0, textI=0;
@@ -29,6 +32,7 @@ public class TextManager : MonoSingleton<TextManager>
         charI++;
 
         obj.transform.DOShakePosition(shakeDuration,shakePower);
+        typewriterSource.PlayOneShotRandomClip(writeSounds);
 
         if (charI >= lines[textI].Length)
         {
@@ -55,6 +59,7 @@ public class TextManager : MonoSingleton<TextManager>
     private Color baseColor;
     void LineCompleted()
     {
+        typewriterSource.PlayOneShot(bell);
         charI = 0;
         textI++;
         if (textI >= lines.Count) textI = 0;
@@ -69,12 +74,14 @@ public class TextManager : MonoSingleton<TextManager>
                 obj.transform.DOScaleY(obj.transform.localScale.y - 0.1f,0);
                 text.DOColor(baseColor, 0f);
                 obj.transform.DOMoveY(obj.transform.position.y - 1, 0);
+                typewriterSource.PlayOneShot(carriageReset);
             });
         
     }
 
     public void LineFailed()
     {
+
         charI = 0;
         textI++;
         if (textI >= lines.Count) textI = 0;
