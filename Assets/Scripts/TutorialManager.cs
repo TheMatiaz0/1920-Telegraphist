@@ -13,6 +13,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     public List<string> lyricsEn;
     public Animator anim;
     public bool english = true;
+    [SerializeField] private GameObject blazeParticle;
 
     private int tutorialPhase = -1;
     [HideInInspector]
@@ -30,6 +31,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 overlay.enabled = false;
                 anim.Play("Idle");
                 Time.timeScale = 1;
+                blazeParticle.SetActive(true);
                 return;
             }
 
@@ -55,8 +57,10 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     private void Start()
     {
+        blazeParticle.SetActive(false);
         canvas.enabled = false;
         overlay.enabled = false;
+
         if (!isTutorial)
         {
             Next();

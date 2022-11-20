@@ -419,6 +419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &545915262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3057966748966623498, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+  m_PrefabInstance: {fileID: 848875597327759819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,18 +823,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1626078987, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_Intensity
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 1689512836, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 504754497162452058, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 848875597007444857, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_Name
       value: Tracks
@@ -878,46 +871,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 848875597613071147, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530290570092569973, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530290570092569973, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530290570092569973, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 340
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038552970427940400, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
+    - target: {fileID: 3057966748966623498, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
---- !u!1 &848875597327759820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1626078985, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-  m_PrefabInstance: {fileID: 848875597327759819}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &848875597327759821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848875597327759820}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interval: {x: 8, y: 15}
 --- !u!1001 &6332880889450140155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,47 +998,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 274588317}
     - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[0]
-      value: 'Welcome, comrade! As the most outstanding telegraphist in our ranks,
-        you will be given a noble task today. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[1]
-      value: 'You will jam Russian signals, sending to the front the contents of
-        the Book of Genesis. Line by line!  '
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[2]
-      value: To use the telegraph hold down the spacebar, but only when a black line
-        scrolls across the paper after the designated line.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[3]
-      value: Be careful where you send your message, soldier! Change the direction
-        of sending by turning the mouse wheel.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[4]
-      value: 'You can''t let Russian troops cross the Warsaw front line! '
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[5]
-      value: 'Your mission will be successful if you persevere the eastern assault. '
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[6]
-      value: By capturing all key enemy positions (marked with a star), you can end
-        operations with an early victory.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
-      propertyPath: lyricsEn.Array.data[7]
-      value: Force without freedom and justice is only violence and tyranny. Justice
-        and freedom without force is verbosity and childishness. For Poland! To battle!
-      objectReference: {fileID: 0}
+      propertyPath: blazeParticle
+      value: 
+      objectReference: {fileID: 545915262}
     - target: {fileID: 8081864894404081183, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
       propertyPath: m_Name
       value: Tutorial

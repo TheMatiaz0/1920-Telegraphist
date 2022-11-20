@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 1626078987}
   - component: {fileID: 1689512836}
   - component: {fileID: 848875597327759821}
+  - component: {fileID: 6479489391437253440}
   m_Layer: 0
   m_Name: Big_1
   m_TagString: Untagged
@@ -245,6 +246,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &848875597327759821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626078985}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {x: 8, y: 15}
+--- !u!114 &6479489391437253440
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -469,7 +483,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: bf80ff90c48af704d9b533143276903b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -861,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -877,7 +891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 350
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 657745934931734176, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
