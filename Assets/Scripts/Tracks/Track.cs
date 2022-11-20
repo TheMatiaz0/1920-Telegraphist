@@ -216,7 +216,11 @@ accuracy: {_accuracy}
 combo: {Combo}",
                 new GUIStyle
                 {
-                    fontSize = 25
+                    fontSize = 25,
+                    normal = new GUIStyleState
+                    {
+                        textColor = Color.white
+                    }
                 });
         }
     }
