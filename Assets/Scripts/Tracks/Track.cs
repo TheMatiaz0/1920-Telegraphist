@@ -18,6 +18,8 @@ namespace Tracks
         [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
         [SerializeField] private ParticleSystem particleSystem;
         [SerializeField] private Animator telegrafAnim;
+        [SerializeField] private AudioClip startBeep, holdBeep, endBeep;
+        [SerializeField] private AudioSource morseSource;
         
         private List<Note> _notes;
         private AudioSource _audioSource;
@@ -138,7 +140,7 @@ namespace Tracks
 
             if (Input.GetKeyDown(keyCode))
             {
-                
+                _audioSource.PlayOneShot(startBeep);
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
                 if (dist < threshold) // / note.Duration
@@ -155,6 +157,8 @@ namespace Tracks
 
                 _currentNoteIndexForInput = _currentNoteIndex;
                 _holding = true;
+
+                StartCoroutine(HandleMorseSound());
             }
 
             if (Input.GetKeyUp(keyCode) && _holding)
@@ -173,12 +177,26 @@ namespace Tracks
 
                 _accuracy = 0;
                 _holding = false;
+                StopCoroutine(HandleMorseSound());
+                morseSource.Stop();
+                _audioSource.PlayOneShot(endBeep);
                 // _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
             }
             else if (Input.GetKeyUp(keyCode))
             {
                 Debug.Log("NOT HOLDING");
             }
+        }
+        
+        private IEnumerator HandleMorseSound()
+        {
+            morseSource.loop = false;
+            morseSource.clip = startBeep;
+            morseSource.Play();
+            yield return new WaitUntil(() => !morseSource.isPlaying);
+            morseSource.loop = true;
+            morseSource.clip = holdBeep;
+            morseSource.Play();
         }
 
         private void ComboIncrease()
