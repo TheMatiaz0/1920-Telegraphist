@@ -4856,7 +4856,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4994,15 +4994,15 @@ MonoBehaviour:
   offset: 3
   notePrefab: {fileID: 1179990873830203450, guid: 134c7fbc2d5bb7546b35cb679957b4aa, type: 3}
   keyCode: 32
-  threshold: 0.7
-  minimumPositiveAccuracy: 0.6
+  threshold: 0.9
+  minimumPositiveAccuracy: 0.75
   particleSystem: {fileID: 657745934931734176}
   telegrafAnim: {fileID: 0}
   startBeep: {fileID: 8300000, guid: 49022491cbd950e4991c5abf0018c985, type: 3}
   holdBeep: {fileID: 8300000, guid: d6d0b259e2a9c4d4c8ec925c78971f8d, type: 3}
   endBeep: {fileID: 8300000, guid: e62df9b8b9519d948b0f594591f0aa27, type: 3}
   morseSource: {fileID: 782700830404775101}
-  missSound: {fileID: 8300000, guid: 331c94b77328d65438abb9ed97ea6792, type: 3}
+  missSound: {fileID: 8300000, guid: 0476d121f4d64da4e81199d89739a290, type: 3}
   soundSource: {fileID: 7470221896081012303}
 --- !u!82 &3609946516610852862
 AudioSource:
@@ -5228,7 +5228,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

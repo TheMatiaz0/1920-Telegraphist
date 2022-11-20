@@ -87,6 +87,9 @@ namespace Tracks
         {
             MoveNotes();
             HandleInput();
+            HandleSounds();
+            
+            telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
 
             if (!_started) return;
             _timer += Time.deltaTime;
@@ -100,9 +103,13 @@ namespace Tracks
                 }
 
                 _currentNoteIndex++;
+
+                if (_currentNoteIndex >= _notes.Count)
+                {
+                    GameManager.Current.GameEnd(true);
+                }
             }
 
-            telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
         }
 
         private void MoveNotes()
@@ -110,15 +117,23 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
-                // var idx = /*_holding ? _currentNoteIndexForInput :*/ _currentNoteIndex;
-                // if (i == idx)
-                // {
-                //     go.GetComponent<SpriteRenderer>().color = Color.red;
-                // }
-                // else
-                // {
-                //     go.GetComponent<SpriteRenderer>().color = Color.black;
-                // }
+            }
+        }
+
+        private Coroutine _mouseRoutine;
+        private void HandleSounds()
+        {
+            if (Input.GetKeyDown(keyCode) && _mouseRoutine == null)
+            {
+                _mouseRoutine = StartCoroutine(HandleMorseSound());
+            } else if (Input.GetKeyUp(keyCode))
+            {
+                if (_mouseRoutine != null)
+                {
+                    StopCoroutine(_mouseRoutine);
+                    _mouseRoutine = null;
+                    morseSource.Stop();
+                }
             }
         }
 
@@ -127,6 +142,7 @@ namespace Tracks
         private int _currentNoteIndexForInput;
         private int _finishedIndex = -1;
 
+        
         private void HandleInput()
         {
             var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
@@ -159,8 +175,6 @@ namespace Tracks
 
                 _currentNoteIndexForInput = _currentNoteIndex;
                 _holding = true;
-
-                StartCoroutine(HandleMorseSound());
             }
 
             if (Input.GetKeyUp(keyCode) && _holding)
@@ -179,7 +193,6 @@ namespace Tracks
 
                 _accuracy = 0;
                 _holding = false;
-                StopCoroutine(HandleMorseSound());
                 morseSource.Stop();
                 soundSource.PlayOneShot(endBeep);
                 // _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
