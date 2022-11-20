@@ -1023,7 +1023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3609946516610852801, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: threshold
-      value: 1.2
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 3609946516610852801, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: telegrafAnim
