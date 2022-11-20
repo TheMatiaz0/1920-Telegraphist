@@ -551,8 +551,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1773115657}
     - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
-      propertyPath: spread
-      value: 0.7
+      propertyPath: myPower.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: powerModifier
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: enemyAttackInterval.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5710885644344459331, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
       propertyPath: m_Name
