@@ -35,7 +35,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _Angle: 76.23553
+    - _Angle: 0
     - _Fill: 0.157
     - _FillEnd: 0.8
     - _FillStart: 0.3
