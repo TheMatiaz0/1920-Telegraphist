@@ -52,6 +52,20 @@ MonoBehaviour:
   lyrics:
   - "Witaj, towarzyszu! Jako najznakomitszy telegrafista w naszych szeregach dostaniesz
     dzi\u015B szczytne zadanie. "
+  - "Zag\u0142usza\u0107 b\u0119dziesz rosyjskie sygna\u0142y, wysy\u0142aj\u0105c
+    na front tre\u015B\u0107 ksi\u0119gi rodzaju. Linijka po linijce! "
+  - "Aby u\u017Cywa\u0107 telegrafu przytrzymaj spacj\u0119, ale tylko gdy po wyznaczonej
+    kresce na papierze przewija\u0107 si\u0119 b\u0119dzie czarny pas."
+  - "Uwa\u017Caj na to, gdzie przesy\u0142asz wiadomo\u015B\u0107, \u017Co\u0142nierzu!
+    Zmie\u0144 kierunek nadawania obracaj\u0105c k\xF3\u0142ko myszy."
+  - "Nie mo\u017Cesz pozwoli\u0107, by wojska rosyjskie przekroczy\u0142y lini\u0119
+    warszawskiego frontu! "
+  - "Twoja misja zako\u0144czy si\u0119 sukcesem, je\u015Bli wytrwasz wschodnie natarcie. "
+  - "Zdobywaj\u0105c wszystkie kluczowe pozycje wroga (oznaczone gwiazdk\u0105) mo\u017Cesz
+    zako\u0144czy\u0107 dzia\u0142ania wcze\u015Bniejszym zwyci\u0119stwem."
+  - "Si\u0142a bez wolno\u015Bci i sprawiedliwo\u015Bci jest tylko przemoc\u0105
+    i tyrani\u0105. Sprawiedliwo\u015B\u0107 i wolno\u015B\u0107 bez si\u0142y jest
+    gadulstwem i dzieci\u0144stwem. Za Polsk\u0119! Do boju!"
   anim: {fileID: 0}
   isTutorial: 0
 --- !u!1 &8081864894416734912
@@ -93,7 +107,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8081864894416734912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -321,7 +335,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8081864895088003955}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
