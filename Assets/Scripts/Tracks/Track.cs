@@ -46,9 +46,10 @@ namespace Tracks
             get => _particleStrength;
             set
             {
-                _particleStrength = Mathf.Min(value, 1f);
+                if (value == 0) _particleStrength = 0;
+                else _particleStrength = Mathf.Clamp(value * 0.025f, 0.003f, 0.06f);
                 var main = particleSystem.main;
-                main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
+                main.startLifetime = new ParticleSystem.MinMaxCurve(_particleStrength, _particleStrength * 5f);
             }
         }
 
@@ -58,7 +59,7 @@ namespace Tracks
             _notes = TrackManager.Current.Tracks[trackKey];
             _musicSource = GetComponent<AudioSource>();
 
-            Time.timeScale = 1f;
+            // Time.timeScale = 1f;
 
             StartSpawning();
 
@@ -109,12 +110,14 @@ namespace Tracks
             if (!_started) return;
             _timer += Time.deltaTime;
 
-            if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 0.5))
+            if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 1))
             {
                 Debug.Log("NEXT");
                 if (_currentNoteIndex - 1 > _finishedIndex)
                 {
+                    // something was missed
                     NoteEnd(0);
+                    BattleController.Current.BadClick();
                 }
 
                 _currentNoteIndex++;
@@ -123,7 +126,7 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(true);
+                    GameManager.Current.GameEnd(false);
                 }
             }
 
@@ -134,6 +137,16 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
+                
+                // var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
+                // if (i == idx)
+                // {
+                //     go.GetComponent<SpriteRenderer>().sprite = null;
+                // }
+                // else
+                // {
+                //     go.GetComponent<SpriteRenderer>().sprite = notePrefab.GetComponent<SpriteRenderer>().sprite;
+                // }
             }
         }
 
