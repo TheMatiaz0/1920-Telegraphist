@@ -23,6 +23,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Image gameEndBg;
     [SerializeField] private Color lightColor;
     [SerializeField] private Color darkColor;
+    [SerializeField] private AudioClip victoryMusic;
+    [SerializeField] private AudioClip defeatMusic;
+    [SerializeField] private AudioSource musicSource;
 
     private void Update()
     {
@@ -41,7 +44,7 @@ public class GameManager : MonoSingleton<GameManager>
         
         vcam.transform.DOMove(gameEndPosition.position, 3f).SetUpdate(true).SetEase(Ease.OutQuart);
         DOVirtual.Float(vcam.m_Lens.FieldOfView, targetFOV, 3f, (v) => vcam.m_Lens.FieldOfView = v)
-            .SetUpdate(true).SetEase(Ease.OutQuart);
+            .SetUpdate(true).SetEase(Ease.OutQuart).SetLink(this.gameObject);
         
         gameEndTitle.text = victory ? victoryText : defeatText;
         gameEndUI.gameObject.SetActive(true);
@@ -53,9 +56,16 @@ public class GameManager : MonoSingleton<GameManager>
         gameEndBg.color = buttonText.color = victory ? lightColor : darkColor;
         gameEndTitle.color = gameEndScore.color = buttonImg.color = victory ? darkColor : lightColor;
 
-        gameEndUI.DOFade(0, 0);
-        gameEndUI.DOFade(1f, 2f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart);
-        gameEndUI.transform.DOScale(1f, 3f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart);
+        foreach (var item in TrackManager.Current.Sources)
+        {
+            item.Stop();
+        }
+
+        musicSource.PlayOneShot(victory ? victoryMusic : defeatMusic);
+
+        gameEndUI.DOFade(0, 0).SetLink(this.gameObject);
+        gameEndUI.DOFade(1f, 2f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart).SetLink(this.gameObject);
+        gameEndUI.transform.DOScale(1f, 3f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart).SetLink(this.gameObject);
     }
 
     public void GameEndButton()

@@ -4995,7 +4995,7 @@ MonoBehaviour:
   notePrefab: {fileID: 1179990873830203450, guid: 134c7fbc2d5bb7546b35cb679957b4aa, type: 3}
   keyCode: 32
   threshold: 0.9
-  minimumPositiveAccuracy: 0.727
+  minimumPositiveAccuracy: 0.72
   particleSystem: {fileID: 657745934931734176}
   telegrafAnim: {fileID: 0}
   startBeep: {fileID: 8300000, guid: 49022491cbd950e4991c5abf0018c985, type: 3}

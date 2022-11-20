@@ -27,6 +27,8 @@ namespace Tracks
         private List<Note> _notes;
         private AudioSource _musicSource;
 
+        public AudioSource MusicSource => _musicSource;
+
         private Coroutine _spawningCoroutine;
 
         private int _currentNoteIndex = 0;
@@ -44,7 +46,7 @@ namespace Tracks
             get => _particleStrength;
             set
             {
-                _particleStrength = Mathf.Min(value, 1.5f);
+                _particleStrength = Mathf.Min(value, 1f);
                 var main = particleSystem.main;
                 main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
             }
@@ -244,12 +246,14 @@ namespace Tracks
             {
                 BattleController.Current.GoodClick();
                 ComboIncrease();
+                TowerController.Current.SetIsCorrect(true);
             }
             else
             {
                 Combo = 0;
                 soundSource.PlayOneShot(missSound);
                 TextManager.Current.LineFailed();
+                TowerController.Current.SetIsCorrect(false);
                 //BattleController.Current.BadClick();
             }
         }
