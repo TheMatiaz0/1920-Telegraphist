@@ -183,14 +183,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
-    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
-      propertyPath: maxAngle.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
-      propertyPath: maxAngle.y
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
 --- !u!1001 &274588316
