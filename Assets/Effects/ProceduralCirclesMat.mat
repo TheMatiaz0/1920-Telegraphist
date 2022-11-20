@@ -34,13 +34,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.261
+    - _Fill: 0.335
     - _Height: 0
-    - _Outline: 0.0509
+    - _Outline: 0.065
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Radius: 0.08
-    - _Rotation: 1.65
+    - _Rotation: 1.58
     - _SineRepetition: 4.89
     - _Smoothing: 0.0743
     - _Speed: -2.47
