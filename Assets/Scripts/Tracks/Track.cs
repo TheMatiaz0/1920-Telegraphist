@@ -27,6 +27,8 @@ namespace Tracks
         private List<Note> _notes;
         private AudioSource _musicSource;
 
+        public AudioSource MusicSource => _musicSource;
+
         private Coroutine _spawningCoroutine;
 
         private int _currentNoteIndex = 0;
