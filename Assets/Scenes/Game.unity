@@ -1014,6 +1014,48 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 274588317}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[0]
+      value: 'Welcome, comrade! As the most outstanding telegraphist in our ranks,
+        you will be given a noble task today. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[1]
+      value: 'You will jam Russian signals, sending to the front the contents of
+        the Book of Genesis. Line by line!  '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[2]
+      value: To use the telegraph hold down the spacebar, but only when a black line
+        scrolls across the paper after the designated line.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[3]
+      value: Be careful where you send your message, soldier! Change the direction
+        of sending by turning the mouse wheel.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[4]
+      value: 'You can''t let Russian troops cross the Warsaw front line! '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[5]
+      value: 'Your mission will be successful if you persevere the eastern assault. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[6]
+      value: By capturing all key enemy positions (marked with a star), you can end
+        operations with an early victory.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: lyricsEn.Array.data[7]
+      value: Force without freedom and justice is only violence and tyranny. Justice
+        and freedom without force is verbosity and childishness. For Poland! To battle!
+      objectReference: {fileID: 0}
     - target: {fileID: 8081864894404081183, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
       propertyPath: m_Name
       value: Tutorial

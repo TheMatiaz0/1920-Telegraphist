@@ -10,7 +10,9 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     public TextMeshProUGUI text;
     public SpriteRenderer overlay;
     public List<string> lyrics;
+    public List<string> lyricsEn;
     public Animator anim;
+    public bool english = true;
 
     private int tutorialPhase = -1;
     [HideInInspector]
@@ -19,16 +21,35 @@ public class TutorialManager : MonoSingleton<TutorialManager>
     void Next()
     {
         tutorialPhase++;
-        if (tutorialPhase >= lyrics.Count)
+        if (!english)
         {
-            isTutorial = false;
-            canvas.enabled = false;
-            overlay.enabled = false;
-            anim.Play("Idle");
-            Time.timeScale = 1;
-            return;
+            if (tutorialPhase >= lyrics.Count)
+            {
+                isTutorial = false;
+                canvas.enabled = false;
+                overlay.enabled = false;
+                anim.Play("Idle");
+                Time.timeScale = 1;
+                return;
+            }
+
+            text.text = lyrics[tutorialPhase];
         }
-        text.text = lyrics[tutorialPhase];
+        else
+        {
+            if (tutorialPhase >= lyricsEn.Count)
+            {
+                isTutorial = false;
+                canvas.enabled = false;
+                overlay.enabled = false;
+                anim.Play("Idle");
+                Time.timeScale = 1;
+                return;
+            }
+
+            text.text = lyricsEn[tutorialPhase];
+        }
+
         anim.Play("Talk"+tutorialPhase);
     }
 
