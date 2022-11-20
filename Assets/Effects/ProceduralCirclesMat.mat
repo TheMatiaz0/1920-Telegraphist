@@ -48,8 +48,8 @@ Material:
     - _Thickness: 0.001
     - _Width: 0.403
     m_Colors:
-    - _CorrectColor: {r: 0.1254902, g: 1.380392, b: 0.2509804, a: 1}
-    - _WrongColor: {r: 7.314525, g: 0, b: 0, a: 1}
+    - _CorrectColor: {r: 0.2571105, g: 1.4811803, b: 0.3788765, a: 1}
+    - _WrongColor: {r: 3.3165727, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6105432481250199677
 MonoBehaviour:
