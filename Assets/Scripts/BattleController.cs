@@ -28,6 +28,7 @@ public class BattlePoint
     private bool captured = false;
     public void Move(float m, int i)
     {
+        var oldPos = posX;
         posX += m*power;
         
         Vector2 pos = obj.transform.position;
@@ -45,6 +46,7 @@ public class BattlePoint
         }
         
         if(posX<=BattleController.Current.losingPosX) BattleController.Current.Lose();
+        FrontlineGenerator.Current.movePoint(i, new Vector3(oldPos, obj.transform.position.y, obj.transform.position.z), obj.transform.position);
     }
 
     public void DecreasePower(float p)
@@ -143,6 +145,7 @@ public class BattleController : MonoSingleton<BattleController>
                || (battlePoints[j].posX < battlePoints[i].posX && pow>0)) 
                 battlePoints[j].power += pow / ((i-j) * affectingModifier);
         }
+        Debug.Log(points.Count);
     }
 
     public void GoodClick()

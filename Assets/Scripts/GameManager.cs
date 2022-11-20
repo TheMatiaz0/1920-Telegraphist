@@ -17,7 +17,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Text gameEndTitle;
     [SerializeField] private Text gameEndScore;
     [SerializeField] private Image buttonImg;
+    [SerializeField] private Image button2Img;
     [SerializeField] private Text buttonText;
+    [SerializeField] private Text button2Text;
     [SerializeField] private string victoryText;
     [SerializeField] private string defeatText;
     [SerializeField] private Image gameEndBg;
@@ -29,7 +31,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.LeftControl)) return;
+        if (!Input.GetKey(KeyCode.LeftControl)) return;
         
         if (Input.GetKeyDown(KeyCode.F9))
         {
@@ -55,8 +57,8 @@ public class GameManager : MonoSingleton<GameManager>
         var list = TrackManager.Current.AccuracyList;
         gameEndScore.text = $"Accuracy: {((list.Any() ? list.Average() : 0) * 100f):F}%\nMaximum streak: {TrackManager.Current.MaxCombo}";
         
-        gameEndBg.color = buttonText.color = victory ? lightColor : darkColor;
-        gameEndTitle.color = gameEndScore.color = buttonImg.color = victory ? darkColor : lightColor;
+        gameEndBg.color = buttonText.color = button2Text.color = victory ? lightColor : darkColor;
+        gameEndTitle.color = gameEndScore.color = buttonImg.color = button2Img.color = victory ? darkColor : lightColor;
 
         foreach (var item in TrackManager.Current.Sources)
         {
@@ -70,9 +72,15 @@ public class GameManager : MonoSingleton<GameManager>
         gameEndUI.transform.DOScale(1f, 3f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart).SetLink(this.gameObject);
     }
 
-    public void GameEndButton()
+    public void Restart()
     {
         DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void MainMenu()
+    {
+        DOTween.KillAll();
+        SceneManager.LoadScene("MainMenu");
     }
 }
