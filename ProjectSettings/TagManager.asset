@@ -44,3 +44,24 @@ TagManager:
   - name: Note
     uniqueID: 3635550549
     locked: 0
+  - name: MapScreenBackground
+    uniqueID: 1409513203
+    locked: 0
+  - name: RadarCircles
+    uniqueID: 2983870713
+    locked: 0
+  - name: ParticleEffects
+    uniqueID: 1133763591
+    locked: 0
+  - name: GUI elements
+    uniqueID: 4128866813
+    locked: 0
+  - name: UI
+    uniqueID: 1471619339
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 1933615827
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 1537412427
+    locked: 0
