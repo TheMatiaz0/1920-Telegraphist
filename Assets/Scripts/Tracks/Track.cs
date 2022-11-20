@@ -110,12 +110,14 @@ namespace Tracks
             if (!_started) return;
             _timer += Time.deltaTime;
 
-            if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 0.5))
+            if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 1))
             {
                 Debug.Log("NEXT");
                 if (_currentNoteIndex - 1 > _finishedIndex)
                 {
+                    // something was missed
                     NoteEnd(0);
+                    BattleController.Current.BadClick();
                 }
 
                 _currentNoteIndex++;
@@ -135,6 +137,16 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
+                
+                // var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
+                // if (i == idx)
+                // {
+                //     go.GetComponent<SpriteRenderer>().sprite = null;
+                // }
+                // else
+                // {
+                //     go.GetComponent<SpriteRenderer>().sprite = notePrefab.GetComponent<SpriteRenderer>().sprite;
+                // }
             }
         }
 
