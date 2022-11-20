@@ -186,6 +186,34 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8792961744451072686, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
@@ -1426,6 +1454,14 @@ PrefabInstance:
       propertyPath: telegrafAnim
       value: 
       objectReference: {fileID: 1507479665}
+    - target: {fileID: 2638810124358540847, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2874551716120909236, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3943319827870688331, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_RootOrder
       value: 10

@@ -310,6 +310,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 4900000, guid: 5b040f30c365d6545a3b62cdc5452877, type: 3}
+  sources:
+  - {fileID: 848875597926558763}
+  - {fileID: 8692727738766335842}
+  - {fileID: 3506369377723358449}
 --- !u!1 &848875597150468726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,5 +1048,10 @@ PrefabInstance:
 --- !u!4 &848875597926558741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3609946516610852800, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+  m_PrefabInstance: {fileID: 4170004367226129365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &848875597926558763 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3609946516610852862, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
   m_PrefabInstance: {fileID: 4170004367226129365}
   m_PrefabAsset: {fileID: 0}
