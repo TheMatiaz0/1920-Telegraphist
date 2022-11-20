@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
 public class FrontlineGenerator:MonoSingleton<FrontlineGenerator>
 {
     BattleController _battleController = BattleController.Current;
-    private LineRenderer _lineRenderer;
-    
+    public LineRenderer _lineRenderer;
+    public LineRenderer _lineRenderer2;
+
+    public Light2D redLight;
 
     Vector2 toV2(Vector3 v3)
     {
@@ -17,10 +20,15 @@ public class FrontlineGenerator:MonoSingleton<FrontlineGenerator>
 
     private void Start()
     {
-        _lineRenderer = GetComponentInChildren<LineRenderer>();
+       
         _battleController = FindObjectOfType<BattleController>();
        refreshFrontlineRenderer();
        
+    }
+    private void refreshGradientLineRenderer()
+    {
+        _lineRenderer2.positionCount = this.positions.Count;
+        _lineRenderer2.SetPositions(this.positions.ToArray());
     }
     
     public void movePoint(int index, Vector3 oldPos, Vector3 newPos)
@@ -47,12 +55,16 @@ public class FrontlineGenerator:MonoSingleton<FrontlineGenerator>
 
     private void refreshFrontLineRendererAfterMove()
     {
-        _lineRenderer.SetPositions(flattenFrontlineList(currentFrontline).
-            Select(d=>new Vector3(d.x,d.y, 0)).
+        this.positions = flattenFrontlineList(currentFrontline).Select(d => new Vector3(d.x, d.y, 0)).ToList();
+        _lineRenderer.SetPositions(this.positions.
             ToArray());
+        
+        this.refreshGradientLineRenderer();
         
     }
 
+    //private array of Vector2
+    private List<Vector3> positions;
     private void refreshFrontlineRenderer()
     {
         var x = _battleController.points;
@@ -66,10 +78,15 @@ public class FrontlineGenerator:MonoSingleton<FrontlineGenerator>
             Select(d=>new Vector3(d.x,d.y, 0)).
             ToArray());
         currentFrontline = frontLine;
+        positions = readyFrontline.Select(d => new Vector3(d.x, d.y, 0)).ToList();
     }
     private void Update()
     {
-       
+       double suma = _battleController.points.Select(x => x.x-1.2).Sum();
+        if (redLight != null)
+        {
+            redLight.pointLightOuterRadius = Mathf.Lerp(15,0,(float)Math.Abs(suma/40.0));
+        }
     }
 
     public float maxVariationX = 0.1f;

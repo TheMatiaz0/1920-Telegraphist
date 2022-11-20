@@ -132,7 +132,6 @@ namespace Tracks
             if (fade == null && _musicSource.GetClipRemainingTime() <= fadeTime * 3.2f) 
             {
                 fade = _musicSource.DOFade(0, fadeTime).OnComplete(() => FadeIn());
-                Debug.Log("music ends!");
             }
 
             if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 1))
