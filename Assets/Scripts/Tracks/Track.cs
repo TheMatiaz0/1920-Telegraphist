@@ -124,7 +124,7 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(true);
+                    GameManager.Current.GameEnd(false);
                 }
             }
 
