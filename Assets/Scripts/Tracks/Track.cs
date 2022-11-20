@@ -150,11 +150,12 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    _trackRepeatCount++;
-                    if (_trackRepeatCount >= maxTrackRepeats)
-                    {
-                        GameManager.Current.GameEnd(true, "You have survived the attack!");   
-                    }
+                    GameManager.Current.GameEnd(true, "You have survived the attack!");   
+
+                    // _trackRepeatCount++;
+                    // if (/*_trackRepeatCount >= maxTrackRepeats*/ true)
+                    // {
+                    // }
                 }
             }
         }
