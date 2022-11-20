@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Tracks
         [SerializeField] private AudioSource morseSource;
         [SerializeField] private AudioClip missSound;
         [SerializeField] private AudioSource soundSource;
+        [SerializeField] private float fadeTime = 2f;
 
 
         private List<Note> _notes;
@@ -37,6 +39,8 @@ namespace Tracks
         private List<GameObject> _noteObjects = new();
 
         private bool _started = false;
+
+        private Tween fade;
 
         public int Combo { get; private set; }
         public bool IsInputEnabled { get; set; } = true;
@@ -104,6 +108,11 @@ namespace Tracks
         private void Update()
         {
             if (TutorialManager.Current && TutorialManager.Current.isTutorial) return;
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                _musicSource.time = 110;
+            }
             
             MoveNotes();
             if (IsInputEnabled)
@@ -116,6 +125,12 @@ namespace Tracks
 
             if (!_started) return;
             _timer += Time.deltaTime;
+
+            if (fade == null && _musicSource.GetClipRemainingTime() <= fadeTime * 3.2f) 
+            {
+                fade = _musicSource.DOFade(0, fadeTime).OnComplete(() => FadeIn());
+                Debug.Log("music ends!");
+            }
 
             if (CurrentNote != null && _timer >= CurrentNote.StartTime + (CurrentNote.Duration * 1))
             {
@@ -136,6 +151,13 @@ namespace Tracks
                     GameManager.Current.GameEnd(true, "You have survived the attack!");
                 }
             }
+        }
+
+        private void FadeIn()
+        {
+            _musicSource.DOFade(1, fadeTime);
+            _musicSource.time = 0;
+            fade = null;
         }
 
         private void MoveNotes()
