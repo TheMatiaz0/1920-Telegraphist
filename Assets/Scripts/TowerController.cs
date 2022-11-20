@@ -51,7 +51,11 @@ public class TowerController : MonoSingleton<TowerController>
         _isCorrect = isCorrect;
 
        // circles.material.SetFloat("_IsCorrect", isCorrect ? 1 : 0);
-        DOTween.To(() => light.color, (v) => light.color = v, isCorrect ? lightOkColor : lightWrongColor, 0.5f).SetLink(gameObject);
+       if (light != null)
+        {
+            DOTween.To(() => light.color, (v) => light.color = v, isCorrect ? lightOkColor : lightWrongColor, 0.5f).SetLink(gameObject);
+        }
+
         // DOVirtual.Float(circles.material.GetFloat("_Speed"), isCorrect ? okSpeed : wrongSpeed, 0.5f,
         //     (v) => circles.material.SetFloat("_Speed", v)).SetLink(gameObject);
     } 
