@@ -62,7 +62,7 @@ namespace Tracks
         {
             var go = Instantiate(notePrefab, transform);
             go.transform.localPosition = new Vector3(0, offset * scale, 0);
-            go.transform.localScale = new Vector3(.7f, duration * scale, 1);
+            go.transform.localScale = new Vector3(1f, duration * scale, 1);
             _noteObjects.Add(go);
         }
 
