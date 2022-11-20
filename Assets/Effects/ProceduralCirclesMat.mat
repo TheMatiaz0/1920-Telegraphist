@@ -39,7 +39,7 @@ Material:
     - _FillEnd: 0
     - _FillStart: 0.348
     - _Height: 0.2
-    - _IsCorrect: 1
+    - _IsCorrect: 0
     - _Outline: 0.15
     - _Radius: 0.05
     - _Rotation: 0.01

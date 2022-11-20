@@ -180,7 +180,9 @@ MonoBehaviour:
   gameEndTitle: {fileID: 0}
   gameEndScore: {fileID: 0}
   buttonImg: {fileID: 0}
+  button2Img: {fileID: 0}
   buttonText: {fileID: 0}
+  button2Text: {fileID: 0}
   victoryText: Victory!
   defeatText: Defeat...
   gameEndBg: {fileID: 0}

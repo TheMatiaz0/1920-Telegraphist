@@ -603,6 +603,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1273814431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1273814431, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+  m_PrefabInstance: {fileID: 629810919769319848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1677196607 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 629810919281841303, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
@@ -612,6 +623,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1738173630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1738173630, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+  m_PrefabInstance: {fileID: 629810919769319848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1772610405 stripped
@@ -722,6 +744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273814430, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1892820108}
     - target: {fileID: 629810919281841302, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1075,9 +1101,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 61716534}
     - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
+      propertyPath: button2Img
+      value: 
+      objectReference: {fileID: 1273814431}
+    - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
       propertyPath: buttonText
       value: 
       objectReference: {fileID: 1200918549}
+    - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
+      propertyPath: button2Text
+      value: 
+      objectReference: {fileID: 1738173630}
     - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
       propertyPath: gameEndScore
       value: 
