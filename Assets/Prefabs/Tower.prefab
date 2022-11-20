@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: {x: -90, y: 90}
-  rotationSpeed: 250
+  rotationSpeed: 350
   towerToRotate: {fileID: 4088210168635921785}
 --- !u!1 &4088210168635921785
 GameObject:

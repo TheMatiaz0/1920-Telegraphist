@@ -15,6 +15,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private CanvasGroup gameEndUI;
     [SerializeField] private Text gameEndTitle;
     [SerializeField] private Text gameEndScore;
+    [SerializeField] private Image buttonImg;
+    [SerializeField] private Text buttonText;
     [SerializeField] private string victoryText;
     [SerializeField] private string defeatText;
     [SerializeField] private Image gameEndBg;
@@ -47,11 +49,16 @@ public class GameManager : MonoSingleton<GameManager>
         var list = TrackManager.Current.AccuracyList;
         gameEndScore.text = $"Accuracy: {((list.Any() ? list.Average() : 0) * 100f):F}%";
         
-        gameEndBg.color = victory ? lightColor : darkColor;
-        gameEndTitle.color = gameEndScore.color = victory ? darkColor : lightColor;
+        gameEndBg.color = buttonText.color = victory ? lightColor : darkColor;
+        gameEndTitle.color = gameEndScore.color = buttonImg.color = victory ? darkColor : lightColor;
 
         gameEndUI.DOFade(0, 0);
         gameEndUI.DOFade(1f, 2f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart);
         gameEndUI.transform.DOScale(1f, 3f).SetUpdate(true).SetDelay(.8f).SetEase(Ease.OutQuart);
+    }
+
+    public void GameEndButton()
+    {
+        Application.Quit(); // todo 
     }
 }

@@ -46,4 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcam: {fileID: 0}
   gameEndPosition: {fileID: 0}
-  targetFOV: 60
+  targetFOV: 55
+  gameEndUI: {fileID: 0}
+  gameEndTitle: {fileID: 0}
+  gameEndScore: {fileID: 0}
+  buttonImg: {fileID: 0}
+  buttonText: {fileID: 0}
+  victoryText: Victory!
+  defeatText: Defeat...
+  gameEndBg: {fileID: 0}
+  lightColor: {r: 0.6320754, g: 0.5666531, b: 0.43171945, a: 1}
+  darkColor: {r: 0.09019608, g: 0.078431375, b: 0.07058824, a: 1}
