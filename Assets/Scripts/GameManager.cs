@@ -7,7 +7,6 @@ using Tracks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class GameManager : MonoSingleton<GameManager>
 {
