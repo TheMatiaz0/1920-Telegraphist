@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Tracks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoSingleton<TutorialManager>
 {
@@ -32,7 +34,8 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 anim.Play("Idle");
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
-                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
+                SetInputActive(true);
+                // CO DO KURWY CZEMU TU Sï¿½ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
@@ -48,7 +51,8 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 anim.Play("Idle");
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
-                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
+                SetInputActive(true);
+                // CO DO KURWY CZEMU TU Sï¿½ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
@@ -60,6 +64,24 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     private void Start()
     {
+        StartTutorial();
+    }
+
+    private void SetInputActive(bool isActive)
+    {
+        Debug.Log($"Setting input active to {isActive}");
+        foreach (var t in Tracks.TrackManager.Current.TrackComponents)
+        {
+            t.IsInputEnabled = isActive;
+        }
+        RadioCirclesController.Current.IsInputEnabled = isActive;
+        TowerController.Current.IsInputEnabled = isActive;
+    }
+
+    private void StartTutorial()
+    {
+        SetInputActive(false);
+        Time.timeScale = 0;
         blazeParticle.SetActive(false);
         canvas.enabled = false;
         overlay.enabled = false;
@@ -67,7 +89,6 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         if (!isTutorial)
         {
             Next();
-            Time.timeScale = 0;
             isTutorial = true;
             canvas.enabled = true;
             overlay.enabled = true;
@@ -80,5 +101,11 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         {
             Next();
         }
+        /*
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        */
     }
 }

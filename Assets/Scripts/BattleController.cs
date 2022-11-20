@@ -9,8 +9,7 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class BattlePoint
 {
-    [HideInInspector]
-    public float posX = 100;
+    public float posX = 0;
     [HideInInspector]
     public float power = 0;
     [HideInInspector]
@@ -31,6 +30,8 @@ public class BattlePoint
     {
         var oldPos = posX;
         posX += m*power;
+
+        if (posX > 10.6f) posX = 10.6f;
         
         Vector2 pos = obj.transform.position;
         pos.x = posX;
@@ -96,7 +97,7 @@ public class BattleController : MonoSingleton<BattleController>
             Vector2 pos = (Vector2)transform.position + new Vector2(0, spread * pointAmount / 2 - i * spread);
             var obj = Instantiate(pointObj, pos, Quaternion.identity, transform);
             battlePoints[i].obj = obj;
-            battlePoints[i].posX = pos.x;
+            battlePoints[i].posX = pos.x + battlePoints[i].posX;
             points.Add(pos);
         }
 
@@ -109,15 +110,15 @@ public class BattleController : MonoSingleton<BattleController>
         if (lost || won) return;
         lost = true;
         Debug.Log("I LOST!");
-        GameManager.Current.GameEnd(false);
+        GameManager.Current.GameEnd(false, "The Soviets have conquered Warsaw!");
     }
     
-    public void Win()
+    public void Win(string reason)
     {
         if (lost || won) return;
         won = true;
         Debug.Log("I WON!");
-        GameManager.Current.GameEnd(true);
+        GameManager.Current.GameEnd(true, reason);
     }
     
     public void AddCapturedPoints(int n)
@@ -127,7 +128,7 @@ public class BattleController : MonoSingleton<BattleController>
         capturedPoints += n;
         if (capturedPoints >= pointsToCapture)
         {
-            Win();
+            Win("All enemy points have been captured!");
         }
     }
 
@@ -153,7 +154,7 @@ public class BattleController : MonoSingleton<BattleController>
 
     public void GoodClick()
     {
-        var combo = track.Combo / 3;
+        var combo = track.Combo;
         if (combo > 6) combo = 6;
         AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y)+combo);
     }

@@ -230,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &671323354760760168
 Transform:
   m_ObjectHideFlags: 0
@@ -458,11 +458,11 @@ MonoBehaviour:
     obj: {fileID: 0}
     capturable: 0
     capturableObj: {fileID: 0}
-  enemyAttackInterval: {x: 1, y: 3}
-  powerModifier: 0.08
+  enemyAttackInterval: {x: 1, y: 2}
+  powerModifier: 0.03
   powerDecreaseSpeed: 0.003
-  enemyPower: {x: -10, y: -5}
-  myPower: {x: 1, y: 2}
+  enemyPower: {x: -15, y: -5}
+  myPower: {x: 1.2, y: 2.4}
   spread: 0.6
   pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}
   points: []
@@ -555,18 +555,6 @@ PrefabInstance:
       value: CapturePoint
       objectReference: {fileID: 0}
     - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6503153
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.r
-      value: 0.764151
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -597,6 +585,10 @@ PrefabInstance:
     - target: {fileID: 5700587848288647409, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717627265261234825, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
@@ -676,18 +668,6 @@ PrefabInstance:
     - target: {fileID: 5700587847690353921, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_Name
       value: CapturePoint_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6503153
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.r
-      value: 0.764151
       objectReference: {fileID: 0}
     - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_SortingOrder
@@ -799,18 +779,6 @@ PrefabInstance:
     - target: {fileID: 5700587847690353921, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_Name
       value: CapturePoint_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6503153
-      objectReference: {fileID: 0}
-    - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
-      propertyPath: m_Color.r
-      value: 0.764151
       objectReference: {fileID: 0}
     - target: {fileID: 5700587848288647408, guid: 67f94906e0a938a4f80f4efd1334f9ba, type: 3}
       propertyPath: m_SortingOrder
