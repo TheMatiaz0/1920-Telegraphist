@@ -11,5 +11,5 @@ Creators:
 - Jakub Latuszek,
 - Filip Latuszek,
 - Jan Stokłosa,
-- Bruno Talaga,
-- Damian Śremski.
+- Damian Śremski,
+- Emil Markiewicz.
