@@ -212,6 +212,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13583268, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941024751, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941024753, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941024753, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941024753, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941024753, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 596027316902698381, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
       propertyPath: m_RootOrder
       value: 1
