@@ -38,7 +38,19 @@ namespace Tracks
 
         public int Combo { get; private set; }
 
-        
+        private float _particleStrength;
+        private float ParticleStrength
+        {
+            get => _particleStrength;
+            set
+            {
+                _particleStrength = Mathf.Min(value, 3f);
+                var main = particleSystem.main;
+                main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
+            }
+        }
+
+
         private void Start()
         {
             _notes = TrackManager.Current.Tracks[trackKey];
@@ -48,7 +60,8 @@ namespace Tracks
 
             StartSpawning();
 
-            particleSystem.Stop();
+            particleSystem.Play();
+            ParticleStrength = 0f;
         }
 
         private void StartSpawning()
@@ -103,6 +116,8 @@ namespace Tracks
                 }
 
                 _currentNoteIndex++;
+
+                ParticleStrength = 0f;
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
@@ -165,7 +180,7 @@ namespace Tracks
                 if (dist < threshold) // / note.Duration
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
-                    particleSystem.Play();
+                    ParticleStrength = _accuracy * Mathf.Max(1, Combo) * 0.5f;
                 }
 
                 if (_accuracy > minimumPositiveAccuracy)
@@ -186,7 +201,7 @@ namespace Tracks
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
 
-                particleSystem.Stop();
+                ParticleStrength = 0f;
 
                 _finishedIndex = idx;
                 NoteEnd(_accuracy / 2);
@@ -249,7 +264,8 @@ holding: {_holding}
 time: {_timer}
 start time of curr note: {CurrentNote?.StartTime ?? -1}
 accuracy: {_accuracy}
-combo: {Combo}",
+combo: {Combo}
+particle strength: {ParticleStrength}",
                 new GUIStyle
                 {
                     fontSize = 25,
