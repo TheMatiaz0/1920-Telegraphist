@@ -45,8 +45,8 @@ Material:
     - _Outline: 0.15
     - _Radius: 0.05
     - _Rotation: 54
-    - _ShiftX: 0.25
-    - _ShiftY: 0.43
+    - _ShiftX: 0.24
+    - _ShiftY: 0.39
     - _SineRepetition: 4
     - _Smoothing: 1.27
     - _Speed: -2
