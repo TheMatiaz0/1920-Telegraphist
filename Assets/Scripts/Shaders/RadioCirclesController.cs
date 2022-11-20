@@ -52,7 +52,8 @@ public class RadioCirclesController : MonoSingleton<RadioCirclesController>
     // Update is called once per frame
     void Update()
     {
-       // IsNeutral = !Input.GetKeyDown(KeyCode.Space);
+        //if 
+        IsNeutral = !Input.GetKey(KeyCode.Space);
         IsCorrect = TowerController.Current.CurrentState;
 
         Angle = TowerController.Current.CurrentAngle;
