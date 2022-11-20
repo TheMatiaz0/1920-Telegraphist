@@ -109,7 +109,7 @@ public class BattleController : MonoSingleton<BattleController>
         if (lost || won) return;
         lost = true;
         Debug.Log("I LOST!");
-        GameManager.Current.GameEnd(false, "The Russians have conquered Warsaw!");
+        GameManager.Current.GameEnd(false, "The Soviets have conquered Warsaw!");
     }
     
     public void Win(string reason)
