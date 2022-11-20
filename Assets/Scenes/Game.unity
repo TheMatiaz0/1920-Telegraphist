@@ -847,6 +847,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3057966748966623498, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
 --- !u!1001 &6332880889450140155
@@ -969,6 +973,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 274588317}
+    - target: {fileID: 8081864894404081181, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
+      propertyPath: blazeParticle
+      value: 
+      objectReference: {fileID: 545915262}
     - target: {fileID: 8081864894404081183, guid: f360602e6b40def40a506a31ac110e4f, type: 3}
       propertyPath: m_Name
       value: Tutorial
