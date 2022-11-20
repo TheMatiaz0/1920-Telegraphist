@@ -5,6 +5,7 @@ using Cinemachine;
 using DG.Tweening;
 using Tracks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -59,6 +60,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GameEndButton()
     {
-        Application.Quit(); // todo 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
