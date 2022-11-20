@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4da1b99896eeea4397c706b99477cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  losingPosX: -9
+  losingPosX: -5.5
   battlePoints:
   - posX: 0
     power: 0
@@ -214,7 +214,7 @@ MonoBehaviour:
   enemyAttackInterval: {x: 1, y: 3}
   powerModifier: 0.1
   powerDecreaseSpeed: 0.003
-  enemyPower: {x: -10, y: -5}
+  enemyPower: {x: -15, y: -5}
   myPower: {x: 1, y: 2}
   spread: 0.6
   pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}
