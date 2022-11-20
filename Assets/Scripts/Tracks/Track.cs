@@ -181,7 +181,7 @@ namespace Tracks
         {
             var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
 
-            if (idx >= _notes.Count) return;
+            if (idx >= _notes.Count || !_started) return;
 
             var note = _notes[idx];
 
