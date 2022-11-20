@@ -21,6 +21,17 @@ public class TowerController : MonoSingleton<TowerController>
     public float okSpeed;
     public float wrongSpeed;
 
+    /// IsCorrectly pressed
+    public bool CurrentState
+    {
+        get
+        {
+            return _isCorrect;
+        }
+    }
+
+    private bool _isCorrect = false;
+
     private void Start()
     {
         SetIsCorrect(false);
@@ -28,7 +39,9 @@ public class TowerController : MonoSingleton<TowerController>
 
     public void SetIsCorrect(bool isCorrect)
     {
-        circles.material.SetFloat("_IsCorrect", isCorrect ? 1 : 0);
+        _isCorrect = isCorrect;
+
+       // circles.material.SetFloat("_IsCorrect", isCorrect ? 1 : 0);
         DOTween.To(() => light.color, (v) => light.color = v, isCorrect ? lightOkColor : lightWrongColor, 0.5f).SetLink(gameObject);
         // DOVirtual.Float(circles.material.GetFloat("_Speed"), isCorrect ? okSpeed : wrongSpeed, 0.5f,
         //     (v) => circles.material.SetFloat("_Speed", v)).SetLink(gameObject);
