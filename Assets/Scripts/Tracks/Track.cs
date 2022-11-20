@@ -244,12 +244,14 @@ namespace Tracks
             {
                 BattleController.Current.GoodClick();
                 ComboIncrease();
+                TowerController.Current.SetIsCorrect(true);
             }
             else
             {
                 Combo = 0;
                 soundSource.PlayOneShot(missSound);
                 TextManager.Current.LineFailed();
+                TowerController.Current.SetIsCorrect(false);
                 //BattleController.Current.BadClick();
             }
         }

@@ -1,13 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
-public class TowerController : MonoBehaviour
+public class TowerController : MonoSingleton<TowerController>
 {
     private float angle = 0;
     public Vector2 maxAngle = Vector2.zero;
     public float rotationSpeed = 0.4f;
     public GameObject towerToRotate;
+
+    public Light2D light;
+    public MeshRenderer circles;
+
+    public Color lightOkColor;
+    public Color lightWrongColor;
+
+    // public float okSpeed;
+    // public float wrongSpeed;
+
+    private void Start()
+    {
+        SetIsCorrect(false);
+    }
+
+    public void SetIsCorrect(bool isCorrect)
+    {
+        circles.material.SetFloat("_IsCorrect", isCorrect ? 1 : 0);
+        DOTween.To(() => light.color, (v) => light.color = v, isCorrect ? lightOkColor : lightWrongColor, 0.5f).SetLink(gameObject);
+        // DOVirtual.Float(circles.material.GetFloat("_Speed"), isCorrect ? okSpeed : wrongSpeed, 0.5f,
+        //     (v) => circles.material.SetFloat("_Speed", v)).SetLink(gameObject);
+    } 
 
     void SetSelectedPoint()
     {
