@@ -34,17 +34,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.438
-    - _Height: 0.298
+    - _Fill: 0.261
+    - _Height: 0
     - _Outline: 0.0509
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Radius: 0.15
-    - _Rotation: 2.81
-    - _SineRepetition: 1
-    - _Smoothing: 0.0432
-    - _Speed: -2.64
-    - _Width: 0.259
+    - _Radius: 0.08
+    - _Rotation: 1.65
+    - _SineRepetition: 4.89
+    - _Smoothing: 0.0743
+    - _Speed: -2.47
+    - _Width: 0.627
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &6105432481250199677
