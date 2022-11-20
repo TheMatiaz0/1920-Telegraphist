@@ -33,6 +33,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 anim.Play("Idle");
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
+                SetInputActive(true);
                 // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
                 return;
             }
@@ -49,6 +50,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 anim.Play("Idle");
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
+                SetInputActive(true);
                 // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
                 return;
             }
@@ -61,6 +63,23 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     private void Start()
     {
+        StartTutorial();
+    }
+
+    private void SetInputActive(bool isActive)
+    {
+        for (int i = 0; i < Tracks.TrackManager.Current.TrackComponents.Length; i++)
+        {
+            Tracks.TrackManager.Current.TrackComponents[i].IsInputEnabled = false;
+        }
+        RadioCirclesController.Current.IsInputEnabled = false;
+        TowerController.Current.IsInputEnabled = false;
+    }
+
+    private void StartTutorial()
+    {
+        SetInputActive(false);
+        Time.timeScale = 0;
         blazeParticle.SetActive(false);
         canvas.enabled = false;
         overlay.enabled = false;
@@ -68,7 +87,6 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         if (!isTutorial)
         {
             Next();
-            Time.timeScale = 0;
             isTutorial = true;
             canvas.enabled = true;
             overlay.enabled = true;
@@ -81,10 +99,11 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         {
             Next();
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        */
     }
 }

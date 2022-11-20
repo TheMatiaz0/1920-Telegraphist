@@ -35,6 +35,7 @@ public class GameManager : MonoSingleton<GameManager>
         gameEndUI.alpha = 0;
     }
 
+    /*
     private void Update()
     {
         if (!Input.GetKey(KeyCode.LeftControl)) return;
@@ -47,6 +48,7 @@ public class GameManager : MonoSingleton<GameManager>
             GameEnd(false, "debug");
         }
     }
+    */
 
     public void GameEnd(bool victory, string reason = "")
     {

@@ -39,6 +39,7 @@ namespace Tracks
         private bool _started = false;
 
         public int Combo { get; private set; }
+        public bool IsInputEnabled { get; set; } = true;
 
         private float _particleStrength;
 
@@ -105,7 +106,10 @@ namespace Tracks
             if (TutorialManager.Current.isTutorial) return;
             
             MoveNotes();
-            HandleInput();
+            if (IsInputEnabled)
+            {
+                HandleInput();
+            }
             HandleSounds();
 
             telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
