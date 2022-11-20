@@ -18,8 +18,8 @@ public class TowerController : MonoSingleton<TowerController>
     public Color lightOkColor;
     public Color lightWrongColor;
 
-    // public float okSpeed;
-    // public float wrongSpeed;
+    public float okSpeed;
+    public float wrongSpeed;
 
     private void Start()
     {
