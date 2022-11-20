@@ -32,6 +32,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 anim.Play("Idle");
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
+                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
@@ -46,6 +47,8 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 overlay.enabled = false;
                 anim.Play("Idle");
                 Time.timeScale = 1;
+                blazeParticle.SetActive(true);
+                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
