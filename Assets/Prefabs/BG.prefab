@@ -1315,7 +1315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1941024752}
   - component: {fileID: 1941024753}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: meter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
