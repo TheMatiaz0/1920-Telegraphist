@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
         
         vcam.transform.DOMove(gameEndPosition.position, 3f).SetUpdate(true).SetEase(Ease.OutQuart);
         DOVirtual.Float(vcam.m_Lens.FieldOfView, targetFOV, 3f, (v) => vcam.m_Lens.FieldOfView = v)
-            .SetUpdate(true).SetEase(Ease.OutQuart);
+            .SetUpdate(true).SetEase(Ease.OutQuart).SetLink(this.gameObject);
         
         gameEndTitle.text = victory ? victoryText : defeatText;
         gameEndUI.gameObject.SetActive(true);
