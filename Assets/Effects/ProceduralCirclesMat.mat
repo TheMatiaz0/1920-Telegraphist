@@ -35,12 +35,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _Angle: 25.61144
+    - _Angle: 0
     - _Fill: 0.157
     - _FillEnd: 0.8
     - _FillStart: 0.3
     - _Height: 0.2
-    - _IsCorrect: 1
+    - _IsCorrect: 0
     - _IsNeutral: 1
     - _Outline: 0.15
     - _Radius: 0.05
