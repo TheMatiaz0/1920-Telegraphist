@@ -34,19 +34,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 1
+    - _Fill: 0.988
     - _Height: 0.2
     - _IsCorrect: 0
     - _Outline: 0.15
     - _Radius: 0.04
     - _Rotation: 0
-    - _ShiftX: 0.928
-    - _ShiftY: 0.45
+    - _ShiftX: 0.762
+    - _ShiftY: 0.54
     - _SineRepetition: 4
     - _Smoothing: 0
-    - _Speed: -3
-    - _Thickness: 0.165
-    - _Width: 0.29
+    - _Speed: -1.32
+    - _Thickness: 0.001
+    - _Width: 0.403
     m_Colors:
     - _CorrectColor: {r: 0.1254902, g: 1.380392, b: 0.2509804, a: 1}
     - _WrongColor: {r: 7.314525, g: 0, b: 0, a: 1}

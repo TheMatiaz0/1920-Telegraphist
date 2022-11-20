@@ -44,7 +44,7 @@ namespace Tracks
             get => _particleStrength;
             set
             {
-                _particleStrength = Mathf.Min(value, 2f);
+                _particleStrength = Mathf.Min(value, 1.5f);
                 var main = particleSystem.main;
                 main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
             }
