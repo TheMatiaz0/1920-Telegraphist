@@ -1508,7 +1508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THE TELEGRAPHIST
+  m_Text: '1920: TELEGRAPHIST'
 --- !u!224 &629810918565946438
 RectTransform:
   m_ObjectHideFlags: 0
