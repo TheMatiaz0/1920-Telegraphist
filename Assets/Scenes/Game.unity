@@ -482,6 +482,120 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &719057241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 368052103, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+  m_PrefabInstance: {fileID: 274588316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &719057244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719057241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {x: 2, y: 16}
+--- !u!95 &719057245
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719057241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1910789790d3a84eb882716954c155d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &850290400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 959213913, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+  m_PrefabInstance: {fileID: 274588316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &850290403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850290400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {x: 2, y: 16}
+--- !u!95 &850290404
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850290400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1910789790d3a84eb882716954c155d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &916332015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1437001325, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
+  m_PrefabInstance: {fileID: 274588316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &916332018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916332015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af3d62b8716f4946a3b512efb6dc02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: {x: 2, y: 16}
+--- !u!95 &916332019
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916332015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1910789790d3a84eb882716954c155d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &942237429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -829,6 +943,14 @@ PrefabInstance:
     - target: {fileID: 848875597007444863, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530290570092569973, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3530290570092569973, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 340
       objectReference: {fileID: 0}
     - target: {fileID: 848875597613071147, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_SortingOrder

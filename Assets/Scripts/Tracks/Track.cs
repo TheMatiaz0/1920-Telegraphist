@@ -46,9 +46,10 @@ namespace Tracks
             get => _particleStrength;
             set
             {
-                _particleStrength = Mathf.Min(value, 1f);
+                if (value == 0) _particleStrength = 0;
+                else _particleStrength = Mathf.Clamp(value * 0.025f, 0.003f, 0.06f);
                 var main = particleSystem.main;
-                main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
+                main.startLifetime = new ParticleSystem.MinMaxCurve(_particleStrength, _particleStrength * 5f);
             }
         }
 
@@ -123,7 +124,7 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(true);
+                    GameManager.Current.GameEnd(false);
                 }
             }
 
