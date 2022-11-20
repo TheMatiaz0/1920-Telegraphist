@@ -135,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 424784040582719817, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4088210168035396324, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -341,6 +345,10 @@ PrefabInstance:
     - target: {fileID: 1154517362518241572, guid: dcef7bf75da703a41865e35fc2407097, type: 3}
       propertyPath: m_Name
       value: Lyrics
+      objectReference: {fileID: 0}
+    - target: {fileID: 1154517363400571839, guid: dcef7bf75da703a41865e35fc2407097, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcef7bf75da703a41865e35fc2407097, type: 3}
