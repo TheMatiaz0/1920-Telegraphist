@@ -41,7 +41,7 @@ Material:
     - _FillStart: 0.3
     - _Height: 0.2
     - _IsCorrect: 0
-    - _IsNeutral: 1
+    - _IsNeutral: 0
     - _Outline: 0.15
     - _Radius: 0.05
     - _Rotation: 54
