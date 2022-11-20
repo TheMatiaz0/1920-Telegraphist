@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoSingleton<TutorialManager>
 {
@@ -79,6 +80,11 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         if (isTutorial && Input.GetKeyDown(KeyCode.Space))
         {
             Next();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

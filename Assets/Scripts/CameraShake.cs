@@ -57,8 +57,8 @@ public class CameraShake : MonoSingleton<CameraShake>
 
     private Tween Transition(float intensity, float frequency, float duration)
     {
-        DOVirtual.Float(_perlin.m_AmplitudeGain, intensity, duration, (v) => _perlin.m_AmplitudeGain = v);
-        return DOVirtual.Float(_perlin.m_FrequencyGain, frequency, duration, (v) => _perlin.m_FrequencyGain = v);
+        DOVirtual.Float(_perlin.m_AmplitudeGain, intensity, duration, (v) => _perlin.m_AmplitudeGain = v).SetLink(this.gameObject);
+        return DOVirtual.Float(_perlin.m_FrequencyGain, frequency, duration, (v) => _perlin.m_FrequencyGain = v).SetLink(this.gameObject);
 
     }
 }

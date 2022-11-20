@@ -46,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         Time.timeScale = 0;
         
-        vcam.transform.DOMove(gameEndPosition.position, 3f).SetUpdate(true).SetEase(Ease.OutQuart);
+        vcam.transform.DOMove(gameEndPosition.position, 3f).SetUpdate(true).SetEase(Ease.OutQuart).SetLink(this.gameObject);
         DOVirtual.Float(vcam.m_Lens.FieldOfView, targetFOV, 3f, (v) => vcam.m_Lens.FieldOfView = v)
             .SetUpdate(true).SetEase(Ease.OutQuart).SetLink(this.gameObject);
         
