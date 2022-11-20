@@ -48,12 +48,13 @@ public class RadioCirclesController : MonoSingleton<RadioCirclesController>
     private void Start()
     {
         material = GetComponent<MeshRenderer>().sharedMaterial;
+        // IsNeutral = true;
     }
 
     void Update()
     {
         //if 
-        IsNeutral = IsInputEnabled && !Input.GetKey(KeyCode.Space);
+        IsNeutral = !IsInputEnabled || !Input.GetKey(KeyCode.Space);
         IsCorrect = TowerController.Current.CurrentState;
 
         Angle = TowerController.Current.CurrentAngle;

@@ -103,7 +103,7 @@ namespace Tracks
 
         private void Update()
         {
-            if (TutorialManager.Current.isTutorial) return;
+            if (TutorialManager.Current && TutorialManager.Current.isTutorial) return;
             
             MoveNotes();
             if (IsInputEnabled)

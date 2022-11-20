@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Tracks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,7 +35,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
                 SetInputActive(true);
-                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
+                // CO DO KURWY CZEMU TU Sï¿½ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
@@ -51,7 +52,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
                 Time.timeScale = 1;
                 blazeParticle.SetActive(true);
                 SetInputActive(true);
-                // CO DO KURWY CZEMU TU S¥ ZDUPLIKOWANE LINIJKI
+                // CO DO KURWY CZEMU TU Sï¿½ ZDUPLIKOWANE LINIJKI
                 return;
             }
 
@@ -68,12 +69,13 @@ public class TutorialManager : MonoSingleton<TutorialManager>
 
     private void SetInputActive(bool isActive)
     {
-        for (int i = 0; i < Tracks.TrackManager.Current.TrackComponents.Length; i++)
+        Debug.Log($"Setting input active to {isActive}");
+        foreach (var t in Tracks.TrackManager.Current.TrackComponents)
         {
-            Tracks.TrackManager.Current.TrackComponents[i].IsInputEnabled = false;
+            t.IsInputEnabled = isActive;
         }
-        RadioCirclesController.Current.IsInputEnabled = false;
-        TowerController.Current.IsInputEnabled = false;
+        RadioCirclesController.Current.IsInputEnabled = isActive;
+        TowerController.Current.IsInputEnabled = isActive;
     }
 
     private void StartTutorial()

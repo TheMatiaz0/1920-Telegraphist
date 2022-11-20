@@ -73,6 +73,7 @@ public class TowerController : MonoSingleton<TowerController>
         {
             return;
         }
+        
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             angle -= rotationSpeed*Time.deltaTime;
