@@ -18,9 +18,14 @@ namespace Tracks
         [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
         [SerializeField] private ParticleSystem particleSystem;
         [SerializeField] private Animator telegrafAnim;
-        
+        [SerializeField] private AudioClip startBeep, holdBeep, endBeep;
+        [SerializeField] private AudioSource morseSource;
+        [SerializeField] private AudioClip missSound;
+        [SerializeField] private AudioSource soundSource;
+
+
         private List<Note> _notes;
-        private AudioSource _audioSource;
+        private AudioSource _musicSource;
 
         private Coroutine _spawningCoroutine;
 
@@ -33,17 +38,30 @@ namespace Tracks
 
         public int Combo { get; private set; }
 
+        private float _particleStrength;
+        private float ParticleStrength
+        {
+            get => _particleStrength;
+            set
+            {
+                _particleStrength = Mathf.Min(value, 3f);
+                var main = particleSystem.main;
+                main.startLifetime = new ParticleSystem.MinMaxCurve(value * 0.2f, value * 0.3f);
+            }
+        }
+
 
         private void Start()
         {
             _notes = TrackManager.Current.Tracks[trackKey];
-            _audioSource = GetComponent<AudioSource>();
+            _musicSource = GetComponent<AudioSource>();
 
             Time.timeScale = 1f;
 
             StartSpawning();
-            
-            particleSystem.Stop();
+
+            particleSystem.Play();
+            ParticleStrength = 0f;
         }
 
         private void StartSpawning()
@@ -55,14 +73,14 @@ namespace Tracks
         private void OffsetStart()
         {
             _started = true;
-            _audioSource.Play();
+            _musicSource.Play();
         }
 
         private void Spawn(float duration)
         {
             var go = Instantiate(notePrefab, transform);
             go.transform.localPosition = new Vector3(0, offset * scale, 0);
-            go.transform.localScale = new Vector3(.7f, duration * scale, 1);
+            go.transform.localScale = new Vector3(1f, duration * scale, 1);
             _noteObjects.Add(go);
         }
 
@@ -82,6 +100,9 @@ namespace Tracks
         {
             MoveNotes();
             HandleInput();
+            HandleSounds();
+            
+            telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
 
             if (!_started) return;
             _timer += Time.deltaTime;
@@ -93,11 +114,17 @@ namespace Tracks
                 {
                     NoteEnd(0);
                 }
-                
+
                 _currentNoteIndex++;
+
+                ParticleStrength = 0f;
+
+                if (_currentNoteIndex >= _notes.Count)
+                {
+                    GameManager.Current.GameEnd(true);
+                }
             }
-            
-            telegrafAnim.SetBool("Holding",Input.GetKey(keyCode));
+
         }
 
         private void MoveNotes()
@@ -105,23 +132,32 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
-                // var idx = /*_holding ? _currentNoteIndexForInput :*/ _currentNoteIndex;
-                // if (i == idx)
-                // {
-                //     go.GetComponent<SpriteRenderer>().color = Color.red;
-                // }
-                // else
-                // {
-                //     go.GetComponent<SpriteRenderer>().color = Color.black;
-                // }
             }
-        } 
+        }
+
+        private Coroutine _mouseRoutine;
+        private void HandleSounds()
+        {
+            if (Input.GetKeyDown(keyCode) && _mouseRoutine == null)
+            {
+                _mouseRoutine = StartCoroutine(HandleMorseSound());
+            } else if (Input.GetKeyUp(keyCode))
+            {
+                if (_mouseRoutine != null)
+                {
+                    StopCoroutine(_mouseRoutine);
+                    _mouseRoutine = null;
+                    morseSource.Stop();
+                }
+            }
+        }
 
         private float _accuracy;
         private bool _holding;
         private int _currentNoteIndexForInput;
         private int _finishedIndex = -1;
 
+        
         private void HandleInput()
         {
             var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
@@ -138,14 +174,13 @@ namespace Tracks
 
             if (Input.GetKeyDown(keyCode))
             {
-                
+                soundSource.PlayOneShot(startBeep);
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
                 if (dist < threshold) // / note.Duration
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
-
-                    particleSystem.Play();
+                    ParticleStrength = _accuracy * Mathf.Max(1, Combo) * 0.5f;
                 }
 
                 if (_accuracy > minimumPositiveAccuracy)
@@ -165,20 +200,33 @@ namespace Tracks
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
-                
-                particleSystem.Stop();
+
+                ParticleStrength = 0f;
 
                 _finishedIndex = idx;
                 NoteEnd(_accuracy / 2);
 
                 _accuracy = 0;
                 _holding = false;
+                morseSource.Stop();
+                soundSource.PlayOneShot(endBeep);
                 // _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
             }
             else if (Input.GetKeyUp(keyCode))
             {
                 Debug.Log("NOT HOLDING");
             }
+        }
+        
+        private IEnumerator HandleMorseSound()
+        {
+            morseSource.loop = false;
+            morseSource.clip = startBeep;
+            morseSource.Play();
+            yield return new WaitUntil(() => !morseSource.isPlaying);
+            morseSource.loop = true;
+            morseSource.clip = holdBeep;
+            morseSource.Play();
         }
 
         private void ComboIncrease()
@@ -190,6 +238,8 @@ namespace Tracks
 
         private void NoteEnd(float accuracy)
         {
+            TrackManager.Current.AccuracyList.Add(accuracy);
+            
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
@@ -198,6 +248,7 @@ namespace Tracks
             else
             {
                 Combo = 0;
+                soundSource.PlayOneShot(missSound);
                 TextManager.Current.LineFailed();
                 //BattleController.Current.BadClick();
             }
@@ -213,10 +264,15 @@ holding: {_holding}
 time: {_timer}
 start time of curr note: {CurrentNote?.StartTime ?? -1}
 accuracy: {_accuracy}
-combo: {Combo}",
+combo: {Combo}
+particle strength: {ParticleStrength}",
                 new GUIStyle
                 {
-                    fontSize = 25
+                    fontSize = 25,
+                    normal = new GUIStyleState
+                    {
+                        textColor = Color.white
+                    }
                 });
         }
     }
