@@ -35,18 +35,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _Angle: 93.66384
+    - _Angle: 25.61144
     - _Fill: 0.157
     - _FillEnd: 0.8
     - _FillStart: 0.3
     - _Height: 0.2
-    - _IsCorrect: 0
+    - _IsCorrect: 1
     - _IsNeutral: 1
     - _Outline: 0.15
     - _Radius: 0.05
     - _Rotation: 54
-    - _ShiftX: 0.24
-    - _ShiftY: 0.36
+    - _ShiftX: 0.25
+    - _ShiftY: 0.45
     - _SineRepetition: 4
     - _Smoothing: 1.27
     - _Speed: -2
