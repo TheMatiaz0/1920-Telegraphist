@@ -5001,6 +5001,7 @@ MonoBehaviour:
   holdBeep: {fileID: 8300000, guid: d6d0b259e2a9c4d4c8ec925c78971f8d, type: 3}
   endBeep: {fileID: 8300000, guid: e62df9b8b9519d948b0f594591f0aa27, type: 3}
   morseSource: {fileID: 782700830404775101}
+  missSound: {fileID: 8300000, guid: 331c94b77328d65438abb9ed97ea6792, type: 3}
 --- !u!82 &3609946516610852862
 AudioSource:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ namespace Tracks
         [SerializeField] private Animator telegrafAnim;
         [SerializeField] private AudioClip startBeep, holdBeep, endBeep;
         [SerializeField] private AudioSource morseSource;
+        [SerializeField] private AudioClip missSound;
         
         private List<Note> _notes;
         private AudioSource _audioSource;
@@ -146,7 +147,6 @@ namespace Tracks
                 if (dist < threshold) // / note.Duration
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
-
                     particleSystem.Play();
                 }
 
@@ -216,6 +216,7 @@ namespace Tracks
             else
             {
                 Combo = 0;
+                _audioSource.PlayOneShot(missSound);
                 TextManager.Current.LineFailed();
                 //BattleController.Current.BadClick();
             }
