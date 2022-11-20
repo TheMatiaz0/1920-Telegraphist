@@ -21,9 +21,10 @@ namespace Tracks
         [SerializeField] private AudioClip startBeep, holdBeep, endBeep;
         [SerializeField] private AudioSource morseSource;
         [SerializeField] private AudioClip missSound;
-        
+        [SerializeField] private AudioSource soundSource;
+
         private List<Note> _notes;
-        private AudioSource _audioSource;
+        private AudioSource _musicSource;
 
         private Coroutine _spawningCoroutine;
 
@@ -40,7 +41,7 @@ namespace Tracks
         private void Start()
         {
             _notes = TrackManager.Current.Tracks[trackKey];
-            _audioSource = GetComponent<AudioSource>();
+            _musicSource = GetComponent<AudioSource>();
 
             Time.timeScale = 1f;
 
@@ -58,7 +59,7 @@ namespace Tracks
         private void OffsetStart()
         {
             _started = true;
-            _audioSource.Play();
+            _musicSource.Play();
         }
 
         private void Spawn(float duration)
@@ -141,7 +142,7 @@ namespace Tracks
 
             if (Input.GetKeyDown(keyCode))
             {
-                _audioSource.PlayOneShot(startBeep);
+                soundSource.PlayOneShot(startBeep);
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
                 if (dist < threshold) // / note.Duration
@@ -179,7 +180,7 @@ namespace Tracks
                 _holding = false;
                 StopCoroutine(HandleMorseSound());
                 morseSource.Stop();
-                _audioSource.PlayOneShot(endBeep);
+                soundSource.PlayOneShot(endBeep);
                 // _currentNoteIndex = Mathf.Max(_currentNoteIndexForInput + 1, _currentNoteIndex);
             }
             else if (Input.GetKeyUp(keyCode))
@@ -216,7 +217,7 @@ namespace Tracks
             else
             {
                 Combo = 0;
-                _audioSource.PlayOneShot(missSound);
+                soundSource.PlayOneShot(missSound);
                 TextManager.Current.LineFailed();
                 //BattleController.Current.BadClick();
             }
