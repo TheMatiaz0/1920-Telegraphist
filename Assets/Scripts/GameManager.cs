@@ -70,6 +70,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void GameEndButton()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
