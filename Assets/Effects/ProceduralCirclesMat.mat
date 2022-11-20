@@ -35,8 +35,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0
-    - _Angle: 0
-    - _Fill: 0.157
+    - _Angle: 64
+    - _Fill: 0.17
     - _FillEnd: 0.8
     - _FillStart: 0.3
     - _Height: 0.2
@@ -46,15 +46,15 @@ Material:
     - _Radius: 0.05
     - _Rotation: 54
     - _ShiftX: 0.25
-    - _ShiftY: 0.45
+    - _ShiftY: 0.43
     - _SineRepetition: 4
     - _Smoothing: 1.27
     - _Speed: -2
-    - _Thickness: 0.344
+    - _Thickness: 0.1
     - _Width: 0.29
     m_Colors:
     - _CorrectColor: {r: 0.1254902, g: 1.380392, b: 0.2509804, a: 1}
-    - _NeutralColor: {r: 0.04779412, g: 0.04779412, b: 0.04779412, a: 0.7843137}
+    - _NeutralColor: {r: 1, g: 0.4626423, b: 0, a: 0.7843137}
     - _WrongColor: {r: 7.314525, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6105432481250199677
