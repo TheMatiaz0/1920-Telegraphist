@@ -38,7 +38,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         overlay.enabled = false;
         if (!isTutorial)
         {
-            anim.Play("Front");
+            Next();
             Time.timeScale = 0;
             isTutorial = true;
             canvas.enabled = true;
