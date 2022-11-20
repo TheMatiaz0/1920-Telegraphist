@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: {x: -180, y: 180}
-  rotationSpeed: 250
+  rotationSpeed: 400
   towerToRotate: {fileID: 4088210168635921785}
   light: {fileID: 0}
   circles: {fileID: 0}

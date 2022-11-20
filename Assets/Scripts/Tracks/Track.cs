@@ -102,6 +102,8 @@ namespace Tracks
 
         private void Update()
         {
+            if (TutorialManager.Current.isTutorial) return;
+            
             MoveNotes();
             HandleInput();
             HandleSounds();
