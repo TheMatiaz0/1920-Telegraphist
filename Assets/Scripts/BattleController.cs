@@ -153,7 +153,9 @@ public class BattleController : MonoSingleton<BattleController>
 
     public void GoodClick()
     {
-        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y)+track.Combo);
+        var combo = track.Combo / 3;
+        if (combo > 6) combo = 6;
+        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y)+combo);
     }
 
     public void BadClick()
