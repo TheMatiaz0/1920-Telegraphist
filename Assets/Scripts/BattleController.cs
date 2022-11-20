@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tracks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -61,6 +62,8 @@ public class BattleController : MonoSingleton<BattleController>
 {
     [Header("WIn & Lose")]
     public float losingPosX = 0;
+
+    public Track track;
 
     [Header("Points")]
     
@@ -150,7 +153,7 @@ public class BattleController : MonoSingleton<BattleController>
 
     public void GoodClick()
     {
-        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y));
+        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y)+track.Combo);
     }
 
     public void BadClick()

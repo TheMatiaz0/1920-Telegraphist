@@ -659,6 +659,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: track
+      value: 
+      objectReference: {fileID: 1773115657}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
       propertyPath: battlePoints.Array.data[2].capturable
       value: 0
       objectReference: {fileID: 0}
@@ -738,6 +742,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1773115657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 848875597926558740, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
+  m_PrefabInstance: {fileID: 848875597327759819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764b8e8f9aa74ca3b89d850c004e5e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1818820524 stripped
