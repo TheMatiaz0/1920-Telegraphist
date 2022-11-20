@@ -59,7 +59,7 @@ namespace Tracks
             _notes = TrackManager.Current.Tracks[trackKey];
             _musicSource = GetComponent<AudioSource>();
 
-            Time.timeScale = 1f;
+            // Time.timeScale = 1f;
 
             StartSpawning();
 

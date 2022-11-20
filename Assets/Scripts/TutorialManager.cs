@@ -25,6 +25,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
             canvas.enabled = false;
             overlay.enabled = false;
             anim.Play("Idle");
+            Time.timeScale = 1;
             return;
         }
         text.text = lyrics[tutorialPhase];
@@ -38,6 +39,7 @@ public class TutorialManager : MonoSingleton<TutorialManager>
         if (!isTutorial)
         {
             anim.Play("Front");
+            Time.timeScale = 0;
             isTutorial = true;
             canvas.enabled = true;
             overlay.enabled = true;
