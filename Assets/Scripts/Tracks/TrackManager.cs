@@ -16,5 +16,7 @@ namespace Tracks
 
             Tracks = TrackHelper.LoadTracks(file.text);
         }
+        
+        public List<float> AccuracyList { get; private set; } = new();
     }
 }

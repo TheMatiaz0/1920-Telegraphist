@@ -18,7 +18,7 @@ namespace Tracks
         [SerializeField, Range(0, 1)] private float minimumPositiveAccuracy = 0.8f;
         [SerializeField] private ParticleSystem particleSystem;
         [SerializeField] private Animator telegrafAnim;
-        
+
         private List<Note> _notes;
         private AudioSource _audioSource;
 
@@ -33,7 +33,7 @@ namespace Tracks
 
         public int Combo { get; private set; }
 
-
+        
         private void Start()
         {
             _notes = TrackManager.Current.Tracks[trackKey];
@@ -42,7 +42,7 @@ namespace Tracks
             Time.timeScale = 1f;
 
             StartSpawning();
-            
+
             particleSystem.Stop();
         }
 
@@ -93,11 +93,11 @@ namespace Tracks
                 {
                     NoteEnd(0);
                 }
-                
+
                 _currentNoteIndex++;
             }
-            
-            telegrafAnim.SetBool("Holding",Input.GetKey(keyCode));
+
+            telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
         }
 
         private void MoveNotes()
@@ -115,7 +115,7 @@ namespace Tracks
                 //     go.GetComponent<SpriteRenderer>().color = Color.black;
                 // }
             }
-        } 
+        }
 
         private float _accuracy;
         private bool _holding;
@@ -138,7 +138,6 @@ namespace Tracks
 
             if (Input.GetKeyDown(keyCode))
             {
-                
                 Debug.Log($"down {idx} {note.StartTime} {_timer}");
                 var dist = Mathf.Abs(note.StartTime - _timer);
                 if (dist < threshold) // / note.Duration
@@ -165,7 +164,7 @@ namespace Tracks
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
-                
+
                 particleSystem.Stop();
 
                 _finishedIndex = idx;
@@ -190,6 +189,8 @@ namespace Tracks
 
         private void NoteEnd(float accuracy)
         {
+            TrackManager.Current.AccuracyList.Add(accuracy);
+            
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();

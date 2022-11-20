@@ -1064,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Track1
       objectReference: {fileID: 0}
+    - target: {fileID: 3609946516610852862, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
+      propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3609946517333185704, guid: 674bcaeb2e6244e4d866e0aeeadd49f3, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
