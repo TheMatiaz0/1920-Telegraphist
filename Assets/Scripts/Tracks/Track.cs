@@ -129,7 +129,7 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(false);
+                    GameManager.Current.GameEnd(true, "You survived the attack!");
                 }
             }
         }

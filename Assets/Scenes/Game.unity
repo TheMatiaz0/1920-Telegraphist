@@ -743,6 +743,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1892820108}
+    - target: {fileID: 629810919688132244, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+      propertyPath: m_Text
+      value: 'Accuracy: 100%
+
+        Maximum streak: 10'
+      objectReference: {fileID: 0}
+    - target: {fileID: 629810919814107548, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 629810920041953955, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -833,6 +843,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+--- !u!114 &629810919769319849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4701917326656795994, guid: 757c4e48c39f8284688b430fc08dc6f5, type: 3}
+  m_PrefabInstance: {fileID: 629810919769319848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &848875597327759819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1111,6 +1132,10 @@ PrefabInstance:
       propertyPath: gameEndTitle
       value: 
       objectReference: {fileID: 1818820524}
+    - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
+      propertyPath: gameEndReason
+      value: 
+      objectReference: {fileID: 629810919769319849}
     - target: {fileID: 8452087598812682238, guid: 849ebaa5f4f17024fa9f30228c7fe671, type: 3}
       propertyPath: gameEndPosition
       value: 
