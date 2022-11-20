@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b1792b5a51bf46800623caca6b322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxAngle: {x: -90, y: 90}
+  maxAngle: {x: 0, y: 360}
   rotationSpeed: 250
   towerToRotate: {fileID: 4088210168635921785}
   light: {fileID: 0}
@@ -418,18 +418,6 @@ PrefabInstance:
     - target: {fileID: 3200310476157874908, guid: 0848e525ba80cee4caab773de17047d9, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200310476157874908, guid: 0848e525ba80cee4caab773de17047d9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.0999997
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200310476157874908, guid: 0848e525ba80cee4caab773de17047d9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3200310476157874908, guid: 0848e525ba80cee4caab773de17047d9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1456288
       objectReference: {fileID: 0}
     - target: {fileID: 3200310476157874908, guid: 0848e525ba80cee4caab773de17047d9, type: 3}
       propertyPath: m_LocalPosition.x
