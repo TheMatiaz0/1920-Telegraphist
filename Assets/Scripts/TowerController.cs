@@ -13,7 +13,7 @@ public class TowerController : MonoSingleton<TowerController>
     {
         get
         {
-            return angle+74;
+            return angle+60;
         }
     }
 

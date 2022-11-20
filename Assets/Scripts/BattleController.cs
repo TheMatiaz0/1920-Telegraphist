@@ -30,6 +30,8 @@ public class BattlePoint
     {
         var oldPos = posX;
         posX += m*power;
+
+        if (posX > 10.6f) posX = 10.6f;
         
         Vector2 pos = obj.transform.position;
         pos.x = posX;
