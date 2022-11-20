@@ -30,6 +30,8 @@ public class TowerController : MonoSingleton<TowerController>
     public float okSpeed;
     public float wrongSpeed;
 
+    public bool IsInputEnabled { get; set; } = true;
+
     /// IsCorrectly pressed
     public bool CurrentState
     {
@@ -67,6 +69,11 @@ public class TowerController : MonoSingleton<TowerController>
     
     void Update()
     {
+        if (!IsInputEnabled)
+        {
+            return;
+        }
+        
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             angle -= rotationSpeed*Time.deltaTime;

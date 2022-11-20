@@ -39,6 +39,7 @@ namespace Tracks
         private bool _started = false;
 
         public int Combo { get; private set; }
+        public bool IsInputEnabled { get; set; } = true;
 
         private float _particleStrength;
 
@@ -102,10 +103,13 @@ namespace Tracks
 
         private void Update()
         {
-            if (TutorialManager.Current.isTutorial) return;
+            if (TutorialManager.Current && TutorialManager.Current.isTutorial) return;
             
             MoveNotes();
-            HandleInput();
+            if (IsInputEnabled)
+            {
+                HandleInput();
+            }
             HandleSounds();
 
             telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
@@ -129,7 +133,7 @@ namespace Tracks
 
                 if (_currentNoteIndex >= _notes.Count)
                 {
-                    GameManager.Current.GameEnd(false);
+                    GameManager.Current.GameEnd(true, "You survived the attack!");
                 }
             }
         }

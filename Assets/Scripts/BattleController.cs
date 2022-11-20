@@ -109,15 +109,15 @@ public class BattleController : MonoSingleton<BattleController>
         if (lost || won) return;
         lost = true;
         Debug.Log("I LOST!");
-        GameManager.Current.GameEnd(false);
+        GameManager.Current.GameEnd(false, "The Russians have conquered Warsaw!");
     }
     
-    public void Win()
+    public void Win(string reason)
     {
         if (lost || won) return;
         won = true;
         Debug.Log("I WON!");
-        GameManager.Current.GameEnd(true);
+        GameManager.Current.GameEnd(true, reason);
     }
     
     public void AddCapturedPoints(int n)
@@ -127,7 +127,7 @@ public class BattleController : MonoSingleton<BattleController>
         capturedPoints += n;
         if (capturedPoints >= pointsToCapture)
         {
-            Win();
+            Win("All enemy points have been captured!");
         }
     }
 

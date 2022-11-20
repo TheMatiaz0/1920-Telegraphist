@@ -16,6 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private CanvasGroup gameEndUI;
     [SerializeField] private Text gameEndTitle;
     [SerializeField] private Text gameEndScore;
+    [SerializeField] private Text gameEndReason;
     [SerializeField] private Image buttonImg;
     [SerializeField] private Image button2Img;
     [SerializeField] private Text buttonText;
@@ -29,20 +30,27 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private AudioClip defeatMusic;
     [SerializeField] private AudioSource musicSource;
 
+    private void Start()
+    {
+        gameEndUI.alpha = 0;
+    }
+
+    /*
     private void Update()
     {
         if (!Input.GetKey(KeyCode.LeftControl)) return;
         
         if (Input.GetKeyDown(KeyCode.F9))
         {
-            GameEnd(true);
+            GameEnd(true, "debug");
         } else if (Input.GetKeyDown(KeyCode.F10))
         {
-            GameEnd(false);
+            GameEnd(false, "debug");
         }
     }
+    */
 
-    public void GameEnd(bool victory)
+    public void GameEnd(bool victory, string reason = "")
     {
         Time.timeScale = 0;
         
@@ -51,6 +59,8 @@ public class GameManager : MonoSingleton<GameManager>
             .SetUpdate(true).SetEase(Ease.OutQuart).SetLink(this.gameObject);
         
         gameEndTitle.text = victory ? victoryText : defeatText;
+        gameEndReason.text = reason;
+        
         gameEndUI.gameObject.SetActive(true);
         gameEndUI.transform.localScale = Vector3.one * 0.7f;
 
@@ -58,7 +68,7 @@ public class GameManager : MonoSingleton<GameManager>
         gameEndScore.text = $"Accuracy: {((list.Any() ? list.Average() : 0) * 100f):F}%\nMaximum streak: {TrackManager.Current.MaxCombo}";
         
         gameEndBg.color = buttonText.color = button2Text.color = victory ? lightColor : darkColor;
-        gameEndTitle.color = gameEndScore.color = buttonImg.color = button2Img.color = victory ? darkColor : lightColor;
+        gameEndTitle.color = gameEndReason.color = gameEndScore.color = buttonImg.color = button2Img.color = victory ? darkColor : lightColor;
 
         foreach (var item in TrackManager.Current.Sources)
         {
