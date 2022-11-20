@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5710885644344459329}
   - component: {fileID: 5710885644344459330}
+  - component: {fileID: 2918903463441147974}
   m_Layer: 0
   m_Name: BattleController
   m_TagString: Untagged
@@ -221,6 +222,21 @@ MonoBehaviour:
   points: []
   selectedPoint: 4
   averagePointX: 0
+--- !u!114 &2918903463441147974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5710885644344459331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c7a659f3f1a4340845948394822c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVariationX: 0.3
+  maxVariationY: 0
+  numberOfPoints: 4
 --- !u!1001 &5700587847131753445
 PrefabInstance:
   m_ObjectHideFlags: 0
