@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Tracks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -28,6 +29,7 @@ public class BattlePoint
     private bool captured = false;
     public void Move(float m, int i)
     {
+        var oldPos = posX;
         posX += m*power;
         
         Vector2 pos = obj.transform.position;
@@ -45,6 +47,7 @@ public class BattlePoint
         }
         
         if(posX<=BattleController.Current.losingPosX) BattleController.Current.Lose();
+        FrontlineGenerator.Current.movePoint(i, new Vector3(oldPos, obj.transform.position.y, obj.transform.position.z), obj.transform.position);
     }
 
     public void DecreasePower(float p)
@@ -59,6 +62,8 @@ public class BattleController : MonoSingleton<BattleController>
 {
     [Header("WIn & Lose")]
     public float losingPosX = 0;
+
+    public Track track;
 
     [Header("Points")]
     
@@ -143,11 +148,14 @@ public class BattleController : MonoSingleton<BattleController>
                || (battlePoints[j].posX < battlePoints[i].posX && pow>0)) 
                 battlePoints[j].power += pow / ((i-j) * affectingModifier);
         }
+        Debug.Log(points.Count);
     }
 
     public void GoodClick()
     {
-        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y));
+        var combo = track.Combo / 3;
+        if (combo > 6) combo = 6;
+        AddPowerAt(selectedPoint,Random.Range(myPower.x,myPower.y)+combo);
     }
 
     public void BadClick()
