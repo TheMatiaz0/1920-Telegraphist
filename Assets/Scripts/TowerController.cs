@@ -7,13 +7,13 @@ using UnityEngine.Rendering.Universal;
 
 public class TowerController : MonoSingleton<TowerController>
 {
-    private float angle = 56;
+    private float angle = 0;
 
     public float CurrentAngle
     {
         get
         {
-            return angle;
+            return angle+74;
         }
     }
 
@@ -29,6 +29,8 @@ public class TowerController : MonoSingleton<TowerController>
 
     public float okSpeed;
     public float wrongSpeed;
+
+    public bool IsInputEnabled { get; set; } = true;
 
     /// IsCorrectly pressed
     public bool CurrentState
@@ -67,6 +69,11 @@ public class TowerController : MonoSingleton<TowerController>
     
     void Update()
     {
+        if (!IsInputEnabled)
+        {
+            return;
+        }
+        
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             angle -= rotationSpeed*Time.deltaTime;

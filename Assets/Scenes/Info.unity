@@ -1447,7 +1447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "@Cubepotato Team\n\nDamian \u015Aremski\nEmil Kmicic\nJan Stok\u0142osa\nMateusz
+  m_Text: "@Cubepotato Team\n\nDamian \u015Aremski\nEmil Markiewicz\nJan Stok\u0142osa\nMateusz
     Kusionowicz\nFilip Latuszek\nJakub Latuszek \n\nMade for HackYeah Jam 2022"
 --- !u!224 &629810920424383702
 RectTransform:

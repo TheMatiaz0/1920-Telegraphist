@@ -7,6 +7,8 @@ public class RadioCirclesController : MonoSingleton<RadioCirclesController>
 
     [SerializeField] private Material material;
 
+    public bool IsInputEnabled { get; set; } = true;
+
     private bool IsNeutral
     {
         set
@@ -43,25 +45,19 @@ public class RadioCirclesController : MonoSingleton<RadioCirclesController>
 
     private bool _isInputDown;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
         material = GetComponent<MeshRenderer>().sharedMaterial;
+        // IsNeutral = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if 
-        IsNeutral = !Input.GetKey(KeyCode.Space);
+        IsNeutral = !IsInputEnabled || !Input.GetKey(KeyCode.Space);
         IsCorrect = TowerController.Current.CurrentState;
 
         Angle = TowerController.Current.CurrentAngle;
 
-    }
-
-    private void FixedUpdate()
-    {
-        // = TowerController.Current.CurrentState; 
     }
 }
