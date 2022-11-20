@@ -459,9 +459,9 @@ MonoBehaviour:
     capturable: 0
     capturableObj: {fileID: 0}
   enemyAttackInterval: {x: 1, y: 3}
-  powerModifier: 0.08
+  powerModifier: 0.05
   powerDecreaseSpeed: 0.003
-  enemyPower: {x: -10, y: -5}
+  enemyPower: {x: -17, y: -5}
   myPower: {x: 1, y: 2}
   spread: 0.6
   pointObj: {fileID: 6355193521580034688, guid: 7e25d6529042bfb49a196d8787d60dc5, type: 3}

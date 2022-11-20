@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: maxAngle.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: maxAngle.y
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
 --- !u!1001 &274588316
@@ -192,10 +200,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 612363849, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 596027316902698381, guid: 4982ada6c3a82b447b3c037765a9f53b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -550,6 +554,18 @@ PrefabInstance:
       propertyPath: track
       value: 
       objectReference: {fileID: 1773115657}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: myPower.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: powerModifier
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710885644344459330, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
+      propertyPath: enemyAttackInterval.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5710885644344459331, guid: ea033b4370d08134bb1ff89971b8120f, type: 3}
       propertyPath: m_Name
       value: BattleController

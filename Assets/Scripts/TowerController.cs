@@ -7,13 +7,13 @@ using UnityEngine.Rendering.Universal;
 
 public class TowerController : MonoSingleton<TowerController>
 {
-    private float angle = 56;
+    private float angle = 0;
 
     public float CurrentAngle
     {
         get
         {
-            return angle;
+            return angle+74;
         }
     }
 
