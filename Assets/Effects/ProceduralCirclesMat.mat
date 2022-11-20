@@ -34,22 +34,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.835
+    - _Alpha: 0.092
     - _Fill: 0.722
     - _Height: 0.2
     - _IsCorrect: 1
     - _Outline: 0.15
     - _Radius: 0.05
     - _Rotation: 0.01
-    - _ShiftX: 0.072
-    - _ShiftY: 0.45
+    - _ShiftX: 0.76
+    - _ShiftY: 0.57
     - _SineRepetition: 4
     - _Smoothing: 0
     - _Speed: -2
-    - _Thickness: 0.257
+    - _Thickness: 0.07
     - _Width: 0.29
     m_Colors:
-    - _CorrectColor: {r: 0.1254902, g: 1.380392, b: 0.2509804, a: 1}
+    - _CorrectColor: {r: 0.76995814, g: 1.6193565, b: 0.85311604, a: 1}
     - _WrongColor: {r: 7.314525, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6105432481250199677

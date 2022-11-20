@@ -137,7 +137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 424784040582719817, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4088210168035396324, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_RootOrder
@@ -186,6 +186,22 @@ PrefabInstance:
     - target: {fileID: 4088210168035396326, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0589097
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1554104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.4253
+      objectReference: {fileID: 0}
+    - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2984
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
@@ -348,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154517363400571839, guid: dcef7bf75da703a41865e35fc2407097, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcef7bf75da703a41865e35fc2407097, type: 3}
