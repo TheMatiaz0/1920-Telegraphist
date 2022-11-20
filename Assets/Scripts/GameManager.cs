@@ -29,10 +29,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (!Input.GetKeyDown(KeyCode.LeftControl)) return;
+        
+        if (Input.GetKeyDown(KeyCode.F9))
         {
             GameEnd(true);
-        } else if (Input.GetKeyDown(KeyCode.D))
+        } else if (Input.GetKeyDown(KeyCode.F10))
         {
             GameEnd(false);
         }
@@ -51,7 +53,7 @@ public class GameManager : MonoSingleton<GameManager>
         gameEndUI.transform.localScale = Vector3.one * 0.7f;
 
         var list = TrackManager.Current.AccuracyList;
-        gameEndScore.text = $"Accuracy: {((list.Any() ? list.Average() : 0) * 100f):F}%";
+        gameEndScore.text = $"Accuracy: {((list.Any() ? list.Average() : 0) * 100f):F}%\nMaximum streak: {TrackManager.Current.MaxCombo}";
         
         gameEndBg.color = buttonText.color = victory ? lightColor : darkColor;
         gameEndTitle.color = gameEndScore.color = buttonImg.color = victory ? darkColor : lightColor;

@@ -13,13 +13,15 @@ namespace Tracks
         
         public Dictionary<string, List<Note>> Tracks { get; private set; }
 
+        public List<float> AccuracyList { get; private set; } = new();
+
+        public int MaxCombo { get; set; }
+
         protected override void Awake()
         {
             base.Awake();
 
             Tracks = TrackHelper.LoadTracks(file.text);
         }
-        
-        public List<float> AccuracyList { get; private set; } = new();
     }
 }

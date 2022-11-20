@@ -41,6 +41,7 @@ namespace Tracks
         public int Combo { get; private set; }
 
         private float _particleStrength;
+
         private float ParticleStrength
         {
             get => _particleStrength;
@@ -104,7 +105,7 @@ namespace Tracks
             MoveNotes();
             HandleInput();
             HandleSounds();
-            
+
             telegrafAnim.SetBool("Holding", Input.GetKey(keyCode));
 
             if (!_started) return;
@@ -129,7 +130,6 @@ namespace Tracks
                     GameManager.Current.GameEnd(false);
                 }
             }
-
         }
 
         private void MoveNotes()
@@ -137,7 +137,7 @@ namespace Tracks
             foreach (var (go, i) in _noteObjects.Select((x, i) => (x, i)))
             {
                 go.transform.localPosition += new Vector3(0, -Time.deltaTime * scale, 0);
-                
+
                 // var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
                 // if (i == idx)
                 // {
@@ -151,12 +151,14 @@ namespace Tracks
         }
 
         private Coroutine _mouseRoutine;
+
         private void HandleSounds()
         {
             if (Input.GetKeyDown(keyCode) && _mouseRoutine == null)
             {
                 _mouseRoutine = StartCoroutine(HandleMorseSound());
-            } else if (Input.GetKeyUp(keyCode))
+            }
+            else if (Input.GetKeyUp(keyCode))
             {
                 if (_mouseRoutine != null)
                 {
@@ -172,7 +174,7 @@ namespace Tracks
         private int _currentNoteIndexForInput;
         private int _finishedIndex = -1;
 
-        
+
         private void HandleInput()
         {
             var idx = _holding ? _currentNoteIndexForInput : _currentNoteIndex;
@@ -184,6 +186,7 @@ namespace Tracks
             if (!_holding && _finishedIndex >= idx && Input.GetKeyDown(keyCode))
             {
                 Debug.Log($"ERR, fin: {_finishedIndex}, idx: {idx}");
+                
                 return;
             }
 
@@ -196,6 +199,12 @@ namespace Tracks
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                     ParticleStrength = _accuracy * Mathf.Max(1, Combo) * 0.5f;
+                }
+                else
+                {
+                    _accuracy = 0;
+                    _particleStrength = 0;
+                    Combo = 0;
                 }
 
                 if (_accuracy > minimumPositiveAccuracy)
@@ -215,6 +224,11 @@ namespace Tracks
                 {
                     _accuracy += 1 - (dist / threshold); // dist * note.Duration
                 }
+                else
+                {
+                    _particleStrength = 0;
+                    Combo = 0;
+                }
 
                 ParticleStrength = 0f;
 
@@ -232,7 +246,7 @@ namespace Tracks
                 Debug.Log("NOT HOLDING");
             }
         }
-        
+
         private IEnumerator HandleMorseSound()
         {
             morseSource.loop = false;
@@ -249,12 +263,17 @@ namespace Tracks
             Combo++;
             TextManager.Current.AddText();
             CameraShake.Current.Shake(Mathf.Min(Combo * .3f, 2f), Mathf.Min(Combo * .5f, 2f));
+
+            if (Combo > TrackManager.Current.MaxCombo)
+            {
+                TrackManager.Current.MaxCombo = Combo;
+            }
         }
 
         private void NoteEnd(float accuracy)
         {
             TrackManager.Current.AccuracyList.Add(accuracy);
-            
+
             if (accuracy >= minimumPositiveAccuracy)
             {
                 BattleController.Current.GoodClick();
@@ -271,6 +290,7 @@ namespace Tracks
             }
         }
 
+#if UNITY_EDITOR
         private void OnGUI()
         {
             GUI.Label(new Rect(10f, 10f, 200f, 200f),
@@ -292,5 +312,6 @@ particle strength: {ParticleStrength}",
                     }
                 });
         }
+#endif
     }
 }

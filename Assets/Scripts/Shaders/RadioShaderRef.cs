@@ -4,5 +4,7 @@ using UnityEngine;
 
 public enum RadioShaderRef
 { 
-   _IsCorrect
+   _IsCorrect,
+   _IsNeutral,
+   _Angle
 }

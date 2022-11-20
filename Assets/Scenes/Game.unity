@@ -187,6 +187,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: maxAngle.x
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4088210168035396331, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
+      propertyPath: maxAngle.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8061679518045354709, guid: 8001b56634cf5d74c82dc622ba3a384c, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.0589097
@@ -869,10 +877,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848875597007444863, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3057966748966623498, guid: ae5776381603fc24bbddc32238cc1428, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
