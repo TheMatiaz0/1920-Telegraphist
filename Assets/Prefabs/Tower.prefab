@@ -131,7 +131,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.774
-  m_Color: {r: 1, g: 0, b: 0.07204962, a: 1}
+  m_Color: {r: 0.81960785, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -482,6 +482,12 @@ MonoBehaviour:
   maxAngle: {x: -90, y: 90}
   rotationSpeed: 250
   towerToRotate: {fileID: 4088210168635921785}
+  light: {fileID: 1740049637}
+  circles: {fileID: 5704971707862998696}
+  lightOkColor: {r: 0.9094528, g: 1, b: 0, a: 1}
+  lightWrongColor: {r: 0.8207547, g: 0, b: 0, a: 0}
+  okSpeed: -1.32
+  wrongSpeed: 0
 --- !u!1 &4088210168635921785
 GameObject:
   m_ObjectHideFlags: 0
