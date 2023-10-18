@@ -1,4 +1,8 @@
 # 1920: Telegraphist
+
+# Warning: This is an old version from HackYeah 2022. Check out updated Telegraphist 1920: Beats of War on Steam: https://store.steampowered.com/app/2584510/Telegraphist_1920_Beats_of_War
+
+
 A repository for HackYeah 2022 hackathon.
 
 Task: **Game Development #1 - Polish Great Battles**
